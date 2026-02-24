@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dedric Brown | Salesforce Product Manager</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0F172A;
+    --slate: #1E293B;
+    --slate2: #334155;
+    --sf-blue: #00A1E0;
+    --orange: #F97316;
+    --white: #F8FAFC;
+    --gray: #94A3B8;
+    --light: #E2E8F0;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(15,23,42,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,161,224,0.15);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
+    height: 70px; transition: all 0.3s;
+  }
+  .nav-brand { display: flex; flex-direction: column; }
+  .nav-name { font-size: 1.1rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
+  .nav-title { font-size: 0.65rem; color: var(--sf-blue); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--sf-blue); transition: width 0.3s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-li-link { color: var(--sf-blue) !important; font-weight: 600 !important; display: flex; align-items: center; gap: 0.4rem; }
+  .nav-li-link:hover { color: #38BDF8 !important; }
+  .nav-li-link::after { display: none !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 7rem 2rem 4rem;
+    background: linear-gradient(135deg, var(--navy) 0%, #0C1A35 40%, #0A1628 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--sf-blue) 1px, transparent 1px), linear-gradient(90deg, var(--sf-blue) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,161,224,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; text-align: center; max-width: 860px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(0,161,224,0.1); border: 1px solid rgba(0,161,224,0.3);
+    color: var(--sf-blue); padding: 0.4rem 1rem; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--sf-blue); animation: pulse 2s infinite; }
+  .hero-headline {
+    font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 30%, var(--sf-blue) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem); color: var(--gray); max-width: 600px;
+    margin: 0 auto 2.5rem; line-height: 1.7;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600;
+    font-size: 0.95rem; text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 4px 20px rgba(249,115,22,0.35); }
+  .btn-primary:hover { background: #EA6C0A; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.45); }
+  .btn-secondary { background: transparent; color: var(--sf-blue); border: 1.5px solid var(--sf-blue); }
+  .btn-secondary:hover { background: rgba(0,161,224,0.1); transform: translateY(-2px); }
+  .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--sf-blue); }
+  .stat-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+  /* ===== SECTIONS ===== */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    display: inline-block; color: var(--sf-blue); font-size: 0.75rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
+    line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem;
+  }
+  .section-divider {
+    width: 48px; height: 3px; background: linear-gradient(90deg, var(--sf-blue), var(--orange));
+    border-radius: 2px; margin-bottom: 1rem;
+  }
+  /* ===== ABOUT ===== */
+  #about { background: var(--navy); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+  .about-left { position: sticky; top: 100px; }
+  .about-avatar {
+    width: 100%; max-width: 280px; aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--slate) 0%, var(--slate2) 100%);
+    border-radius: 20px; border: 1px solid rgba(0,161,224,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; margin-bottom: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,161,224,0.1);
+  }
+  .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .skill-tag {
+    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.2);
+    color: var(--sf-blue); padding: 0.3rem 0.8rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .about-text p { color: #CBD5E1; line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.98rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text strong { color: var(--white); }
+  /* ===== FOCUS AREAS ===== */
+  .focus-section { background: var(--slate); }
+  .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .focus-card {
+    background: var(--navy); border: 1px solid rgba(0,161,224,0.12);
+    border-radius: 16px; padding: 2rem; text-align: center;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .focus-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,161,224,0.05), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .focus-card:hover { transform: translateY(-6px); border-color: rgba(0,161,224,0.35); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .focus-card:hover::before { opacity: 1; }
+  .focus-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .focus-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+  .focus-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+  /* ===== PROJECTS ===== */
+  #projects { background: var(--navy); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .project-card {
+    background: var(--slate); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 2rem; transition: all 0.3s;
+    display: flex; flex-direction: column; position: relative; overflow: hidden;
+  }
+  .project-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--sf-blue), var(--orange));
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .project-card:hover { transform: translateY(-6px); border-color: rgba(0,161,224,0.25); box-shadow: 0 24px 48px rgba(0,0,0,0.35); }
+  .project-card:hover::after { opacity: 1; }
+  .project-company {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--sf-blue); margin-bottom: 0.5rem;
+  }
+  .project-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+  .project-tag {
+    display: inline-block; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25);
+    color: var(--orange); padding: 0.2rem 0.7rem; border-radius: 100px;
+    font-size: 0.7rem; font-weight: 600; margin-bottom: 1rem;
+  }
+  .project-metrics { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
+  .metric {
+    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.15);
+    border-radius: 8px; padding: 0.4rem 0.75rem;
+    font-size: 0.8rem; color: var(--sf-blue); font-weight: 600;
+  }
+  .project-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.6; flex: 1; }
+  /* ===== EXPERIENCE ===== */
+  #experience { background: var(--slate); }
+  .timeline { position: relative; margin-top: 3rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(180deg, var(--sf-blue), rgba(0,161,224,0.1));
+  }
+  .exp-item { display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
+  .exp-dot {
+    flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%;
+    background: var(--slate2); border: 2px solid var(--sf-blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; position: relative; z-index: 1;
+    box-shadow: 0 0 0 4px rgba(0,161,224,0.12);
+  }
+  .exp-card {
+    background: var(--navy); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 1.75rem; flex: 1; transition: all 0.3s;
+  }
+  .exp-card:hover { border-color: rgba(0,161,224,0.2); transform: translateX(4px); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--white); }
+  .exp-period {
+    font-size: 0.75rem; font-weight: 600; color: var(--sf-blue);
+    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.2);
+    padding: 0.25rem 0.75rem; border-radius: 100px; white-space: nowrap;
+  }
+  .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--orange); margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.87rem; color: var(--gray); line-height: 1.6; padding: 0.2rem 0;
+    padding-left: 1.2rem; position: relative;
+  }
+  .exp-bullets li::before { content: 'â¸'; position: absolute; left: 0; color: var(--sf-blue); }
+  /* ===== CONTACT ===== */
+  #contact { background: var(--navy); }
+  .contact-inner {
+    max-width: 680px; margin: 0 auto; text-align: center;
+  }
+  .contact-cta { font-size: 1.1rem; color: var(--gray); margin: 1.5rem 0 2.5rem; line-height: 1.7; }
+  .contact-cards { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .contact-card {
+    background: var(--slate); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 1.5rem 2rem; transition: all 0.3s;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    min-width: 200px;
+  }
+  .contact-card:hover { border-color: rgba(0,161,224,0.3); transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.3); }
+  .contact-card-icon { font-size: 1.6rem; }
+  .contact-card-label { font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .contact-card-value { font-size: 0.9rem; color: var(--white); font-weight: 600; text-decoration: none; }
+  .contact-card-value:hover { color: var(--sf-blue); }
+  /* ===== FOOTER ===== */
+  footer {
+    background: #080E1A; border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 2rem; text-align: center;
+  }
+  .footer-quote {
+    font-size: 1rem; color: var(--gray); font-style: italic;
+    max-width: 560px; margin: 0 auto 1.5rem; line-height: 1.7;
+  }
+  .footer-quote::before { content: '\"'; }
+  .footer-quote::after { content: '\"'; }
+  .footer-copy { font-size: 0.78rem; color: #475569; }
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--slate2); border-radius: 3px; }
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--slate); border-bottom: 1px solid rgba(0,161,224,0.15); padding: 1.5rem 2rem; gap: 1.25rem; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-left { position: static; }
+    .about-avatar { margin: 0 auto 1.5rem; }
+    .exp-item { gap: 1rem; }
+    .timeline::before { left: 16px; }
+    .exp-dot { width: 34px; height: 34px; font-size: 0.9rem; }
+    .hero-stats { gap: 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="nav-name">Dedric Brown</span>
+    <span class="nav-title">Salesforce Product Manager &bull; GTM Systems Specialist</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="nav-li-link">&#x1F517; LinkedIn</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Salesforce Product Manager &bull; GTM Systems Specialist</div>
+    <h1 class="hero-headline">Untying The Knot</h1>
+    <p class="hero-sub">Transforming complex enterprise challenges into streamlined, scalable solutions&mdash;turning tangled systems, fractured workflows, and misaligned teams into clean, high-performing GTM engines.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">&#9654; View My Projects</a>
+      <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="btn btn-secondary">&#x1F517; Connect on LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">$150M+</div><div class="stat-label">Pipeline Influenced</div></div>
+      <div class="stat"><div class="stat-num">900+</div><div class="stat-label">Sales Reps Supported</div></div>
+      <div class="stat"><div class="stat-num">$3M+</div><div class="stat-label">Cost Avoidance</div></div>
+      <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years Enterprise PM</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <div class="about-avatar">&#128104;&#8205;&#128187;</div>
+        <span class="section-label">Core Expertise</span>
+        <div class="about-skills">
+          <span class="skill-tag">Sales Cloud</span>
+          <span class="skill-tag">GTM Systems</span>
+          <span class="skill-tag">ERP Integration</span>
+          <span class="skill-tag">AI / Agentforce</span>
+          <span class="skill-tag">Territory Planning</span>
+          <span class="skill-tag">Order-to-Cash</span>
+          <span class="skill-tag">Identity &amp; Security</span>
+          <span class="skill-tag">Cross-Functional Leadership</span>
+          <span class="skill-tag">NetSuite</span>
+          <span class="skill-tag">Fullcast</span>
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Stakeholder Alignment</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label reveal">About Me</span>
+        <div class="section-divider reveal"></div>
+        <h2 class="section-title reveal">Building Systems That Actually Work</h2>
+        <div class="reveal">
+          <p>I&rsquo;m a Salesforce Product Manager with a deep specialization in <strong>Go-To-Market (GTM) systems</strong>&mdash;the infrastructure that sits at the heart of how modern enterprise sales organizations operate, scale, and win. My career has been defined by one recurring mission: walking into environments where complexity has calcified into friction, and engineering a way out.</p>
+          <p>Most recently at <strong>Cloudflare</strong>, I&rsquo;ve led the evolution of the Salesforce Sales Cloud ecosystem that powers one of the world&rsquo;s fastest-growing security companies. From architecting an enterprise growth engine that influenced <strong>$150M+ in pipeline</strong> to integrating NetSuite ERP to collapse a 3-day month-end close to under one day, my work has consistently focused on removing the invisible drag that slows high-performing sales teams down. I also led the evaluation and deployment of <strong>Fullcast for territory and capacity planning</strong>, enabling 900+ sales reps to operate with clarity and speed during annual planning cycles.</p>
+          <p>Before Cloudflare, I spent nearly three years at <strong>Salesforce</strong> itself&mdash;first on the Identity &amp; Security team, where I managed a platform protecting <strong>$25M+ in regulated contracts</strong> and remediating 10+ critical vulnerabilities, and then on the Customer Platforms team where I drove cross-functional product strategy across enterprise CRM initiatives. Earlier in my career at <strong>NCR Corporation</strong>, I built the Salesforce product management foundation that informs everything I do today&mdash;learning how to translate business complexity into platform capability at scale.</p>
+          <p>Today, I&rsquo;m most energized by the intersection of <strong>AI, automation, and GTM strategy</strong>. My work implementing Salesforce Agentforce for GTM sales teams has demonstrated what&rsquo;s possible when you pair thoughtful product design with emerging AI capabilities&mdash;reducing manual data entry by 40%+ and achieving 85%+ prediction accuracy on opportunity outcomes. I believe the next generation of enterprise software won&rsquo;t just automate tasks&mdash;it will amplify human judgment. That&rsquo;s the future I&rsquo;m building toward.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS AREAS -->
+<section class="focus-section">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="section-label">What I Do Best</span>
+      <div class="section-divider" style="margin: 0.75rem auto 0.5rem;"></div>
+      <h2 class="section-title">Core Focus Areas</h2>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card reveal">
+        <div class="focus-icon">&#x1F5FA;</div>
+        <div class="focus-title">GTM Systems Architecture</div>
+        <div class="focus-desc">Designing and optimizing the Salesforce ecosystems that power enterprise sales motion&mdash;from lead routing to revenue recognition.</div>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon">&#x1F3AF;</div>
+        <div class="focus-title">Enterprise CRM Strategy</div>
+        <div class="focus-desc">Translating complex business requirements into scalable CRM architectures that align with revenue goals and organizational growth.</div>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon">&#x1F916;</div>
+        <div class="focus-title">AI &amp; Automation</div>
+        <div class="focus-desc">Implementing Agentforce and intelligent automation to eliminate repetitive work and surface actionable insights for sales teams.</div>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon">&#x1F91D;</div>
+        <div class="focus-title">Cross-Functional Leadership</div>
+        <div class="focus-desc">Aligning engineering, sales ops, finance, and GTM leadership around shared product roadmaps and measurable outcomes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <span class="section-label reveal">Case Studies</span>
+    <div class="section-divider reveal"></div>
+    <h2 class="section-title reveal">Featured Projects</h2>
+    <p class="reveal" style="color:var(--gray); max-width:560px; font-size:0.95rem; margin-bottom:0;">A selection of high-impact initiatives that transformed enterprise GTM systems, drove measurable business outcomes, and untied some very complex knots.</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-company">Cloudflare</div>
+        <h3 class="project-title">Enterprise Growth Engine</h3>
+        <span class="project-tag">Sales Cloud Optimization</span>
+        <div class="project-metrics">
+          <span class="metric">$150M+ Pipeline</span>
+          <span class="metric">35% Adoption Increase</span>
+          <span class="metric">40+ Bottlenecks Removed</span>
+          <span class="metric">15+ Stakeholders Aligned</span>
+        </div>
+        <p class="project-desc">Led a comprehensive Salesforce Sales Cloud optimization initiative to support Cloudflare&rsquo;s rapid enterprise growth. Eliminated 40+ workflow bottlenecks that were slowing deal velocity, aligned 15+ cross-functional stakeholders across Sales, RevOps, and Finance, and drove a 35% increase in platform adoption. The resulting system influenced $150M+ in pipeline by giving reps cleaner data, smarter automation, and faster access to the insights they needed to close.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-company">Cloudflare</div>
+        <h3 class="project-title">NetSuite ERP Integration</h3>
+        <span class="project-tag">Order-to-Cash Transformation</span>
+        <div class="project-metrics">
+          <span class="metric">25+ Handoffs Eliminated</span>
+          <span class="metric">3 Days &rarr; &lt;1 Day Close</span>
+        </div>
+        <p class="project-desc">Designed and delivered a bi-directional Salesforce&ndash;NetSuite integration that fundamentally transformed Cloudflare&rsquo;s Order-to-Cash process. By eliminating 25+ manual handoff points between systems, the integration compressed month-end close from 3+ days to under 1 day. This initiative reduced revenue leakage from data discrepancies, improved billing accuracy, and freed finance and sales ops teams from hours of reconciliation work every month.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-company">Cloudflare</div>
+        <h3 class="project-title">Fullcast GTM Territory &amp; Capacity Planning</h3>
+        <span class="project-tag">GTM Planning Platform</span>
+        <div class="project-metrics">
+          <span class="metric">900+ Sales Reps Supported</span>
+          <span class="metric">75% Faster Rollouts</span>
+          <span class="metric">5-Vendor Evaluation</span>
+        </div>
+        <p class="project-desc">Owned a rigorous 5-vendor evaluation process to select and implement Fullcast as Cloudflare&rsquo;s territory and capacity planning platform. This replaced a fragmented, spreadsheet-heavy process with a dynamic, data-driven system supporting 900+ sales reps. Annual planning rollouts that previously took weeks were completed 75% faster, enabling leadership to model scenarios, deploy territories, and adjust capacity in real time as business conditions evolved.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-company">Cloudflare</div>
+        <h3 class="project-title">AI Agentforce for GTM Sales Teams</h3>
+        <span class="project-tag">Salesforce Agentforce</span>
+        <div class="project-metrics">
+          <span class="metric">40%+ Data Entry Reduction</span>
+          <span class="metric">85%+ Prediction Accuracy</span>
+        </div>
+        <p class="project-desc">Spearheaded the implementation of Salesforce Agentforce to bring AI-powered assistance directly into the daily workflows of Cloudflare&rsquo;s GTM sales teams. The deployment achieved a 40%+ reduction in manual data entry by automating activity capture, contact enrichment, and opportunity updates. Predictive models achieved 85%+ accuracy on deal outcome forecasts, enabling front-line managers to prioritize coaching and intervention where it mattered most.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-company">Salesforce</div>
+        <h3 class="project-title">Enterprise Identity &amp; Security Platform</h3>
+        <span class="project-tag">Identity &amp; Security</span>
+        <div class="project-metrics">
+          <span class="metric">$3M+ Cost Avoidance</span>
+          <span class="metric">10+ Vulnerabilities Fixed</span>
+          <span class="metric">$25M+ Contracts Protected</span>
+        </div>
+        <p class="project-desc">As Product Manager for Salesforce&rsquo;s internal Identity &amp; Security platform, I managed a product that served as the security backbone for 25M+ in regulated enterprise contracts. Led the identification and remediation of 10+ critical platform vulnerabilities, achieving $3M+ in cost avoidance by preventing potential compliance failures and security incidents. Worked closely with Legal, Compliance, and Engineering to ensure the platform met evolving enterprise and government security standards.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <span class="section-label reveal">Career Journey</span>
+    <div class="section-divider reveal"></div>
+    <h2 class="section-title reveal">Work Experience</h2>
+    <div class="timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-dot">&#x2601;</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Salesforce Product Manager, GTM Systems</div>
+            <span class="exp-period">Apr 2023 &ndash; Present</span>
+          </div>
+          <div class="exp-company">Cloudflare</div>
+          <ul class="exp-bullets">
+            <li>Architected and optimized Sales Cloud ecosystem supporting $150M+ in pipeline across enterprise segments</li>
+            <li>Led NetSuite ERP integration eliminating 25+ manual handoffs and reducing month-end close from 3 days to under 1 day</li>
+            <li>Conducted 5-vendor evaluation and implemented Fullcast for territory &amp; capacity planning across 900+ reps</li>
+            <li>Deployed Salesforce Agentforce AI, achieving 40%+ data entry reduction and 85%+ forecast accuracy</li>
+            <li>Eliminated 40+ workflow bottlenecks and aligned 15+ cross-functional stakeholders on product roadmap</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot">&#x2605;</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Product Manager, Customer Platforms</div>
+            <span class="exp-period">Jun 2021 &ndash; Apr 2023</span>
+          </div>
+          <div class="exp-company">Salesforce</div>
+          <ul class="exp-bullets">
+            <li>Drove cross-functional CRM product strategy across enterprise platform initiatives at scale</li>
+            <li>Partnered with Sales, Customer Success, and Engineering to define and ship platform improvements</li>
+            <li>Managed complex stakeholder landscapes across multiple business units and geographies</li>
+            <li>Built product roadmaps grounded in data analysis, customer research, and business impact modeling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot">&#x1F512;</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Product Manager, Identity &amp; Security</div>
+            <span class="exp-period">Jan 2020 &ndash; Jun 2021</span>
+          </div>
+          <div class="exp-company">Salesforce</div>
+          <ul class="exp-bullets">
+            <li>Managed internal identity &amp; security platform protecting $25M+ in regulated enterprise contracts</li>
+            <li>Identified and remediated 10+ critical platform vulnerabilities, achieving $3M+ in cost avoidance</li>
+            <li>Collaborated with Legal, Compliance, and Security Engineering to meet evolving regulatory standards</li>
+            <li>Translated complex security requirements into actionable engineering backlogs and release plans</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-dot">&#x1F4CA;</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Salesforce Product Manager</div>
+            <span class="exp-period">Jan 2018 &ndash; Jan 2020</span>
+          </div>
+          <div class="exp-company">NCR Corporation</div>
+          <ul class="exp-bullets">
+            <li>Built foundational Salesforce product management capabilities supporting NCR&rsquo;s global sales organization</li>
+            <li>Drove CRM adoption initiatives across distributed sales teams in a complex enterprise environment</li>
+            <li>Partnered with Sales Operations to translate field feedback into platform improvements and automation</li>
+            <li>Developed core product management methodologies that continue to inform current practice</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <span class="section-label reveal">Get In Touch</span>
+      <div class="section-divider reveal" style="margin: 0.75rem auto;"></div>
+      <h2 class="section-title reveal">Let&rsquo;s Work Together</h2>
+      <p class="contact-cta reveal">Let&rsquo;s discuss how I can help transform your GTM systems&mdash;whether you&rsquo;re untangling a broken CRM, planning an AI initiative, or scaling a sales organization through rapid growth.</p>
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="contact-card-icon">&#x2709;</div>
+          <div class="contact-card-label">Email</div>
+          <a href="mailto:Dbrown6422@gmail.com" class="contact-card-value">Dbrown6422@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#x1F517;</div>
+          <div class="contact-card-label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="contact-card-value">dbrowntech</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <a href="mailto:Dbrown6422@gmail.com" class="btn btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;">&#x1F4EC; Send Me a Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-quote">The best enterprise products don&rsquo;t just solve today&rsquo;s problems &mdash; they anticipate tomorrow&rsquo;s.</p>
+  <p class="footer-copy">&copy; 2026 Dedric Brown &bull; Salesforce Product Manager &bull; All rights reserved.</p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+  hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') navLinks.classList.toggle('open'); });
+  document.querySelectorAll('#navLinks a').forEach(a => { a.addEventListener('click', () => navLinks.classList.remove('open')); });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = (Array.from(revealEls).indexOf(entry.target) % 4) * 0.08 + 's';
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) { navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)'; }
+    else { navbar.style.boxShadow = 'none'; }
+  });
+
+  // Smooth active nav link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('#navLinks a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
+    navAnchors.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+    });
+  });
+</script>
+</body>
+</html>
