@@ -1,615 +1,3786 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dedric Brown | Salesforce Product Manager</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dedric Brown â Salesforce Product Manager. Building world-class CRM experiences at the intersection of strategy, design, and technology." />
+  <meta name="author" content="Dedric Brown" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0A0A0F" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dedric Brown | Salesforce Product Manager" />
+  <meta property="og:description" content="Salesforce Product Manager crafting high-impact CRM solutions. Explore my work, case studies, and professional journey." />
+  <meta property="og:url" content="https://dedricbrown.com" />
+  <meta property="og:image" content="https://dedricbrown.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Dedric Brown Portfolio" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dedric Brown | Salesforce Product Manager" />
+  <meta name="twitter:description" content="Salesforce Product Manager crafting high-impact CRM solutions. Explore my work, case studies, and professional journey." />
+  <meta name="twitter:image" content="https://dedricbrown.com/og-image.jpg" />
+
+  <title>Dedric Brown | Salesforce Product Manager</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES
+    ============================================ */
+    :root {
+      /* Color Palette */
+      --color-base:          #0A0A0F;
+      --color-base-soft:     #111118;
+      --color-base-elevated: #16161F;
+      --color-base-overlay:  #1C1C28;
+      --color-border:        rgba(255, 255, 255, 0.08);
+      --color-border-strong: rgba(255, 255, 255, 0.14);
+
+      --color-blue:          #0176D3;
+      --color-blue-light:    #1A8FEB;
+      --color-blue-dark:     #0158A8;
+      --color-cyan:          #00DFD8;
+      --color-cyan-light:    #33E8E2;
+      --color-cyan-dark:     #00B5AF;
+      --color-gold:          #FF9F43;
+      --color-gold-light:    #FFB366;
+      --color-gold-dark:     #E6862A;
+
+      --color-white:         #FFFFFF;
+      --color-text-primary:  #F0F0F8;
+      --color-text-secondary:#A0A0B8;
+      --color-text-muted:    #5A5A78;
+
+      /* Gradients */
+      --gradient-brand:      linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan) 100%);
+      --gradient-gold:       linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+      --gradient-hero:       linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan) 60%, var(--color-gold) 100%);
+      --gradient-surface:    linear-gradient(160deg, var(--color-base-elevated) 0%, var(--color-base-overlay) 100%);
+      --gradient-glow-blue:  radial-gradient(ellipse 60% 50% at 50% 0%, rgba(1, 118, 211, 0.18) 0%, transparent 70%);
+      --gradient-glow-cyan:  radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0, 223, 216, 0.12) 0%, transparent 70%);
+
+      /* Typography Scale */
+      --font-family:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-size-xs:        clamp(0.70rem, 0.65rem + 0.25vw, 0.80rem);
+      --font-size-sm:        clamp(0.85rem, 0.80rem + 0.25vw, 0.95rem);
+      --font-size-base:      clamp(1.00rem, 0.95rem + 0.25vw, 1.10rem);
+      --font-size-md:        clamp(1.10rem, 1.00rem + 0.50vw, 1.25rem);
+      --font-size-lg:        clamp(1.25rem, 1.10rem + 0.75vw, 1.50rem);
+      --font-size-xl:        clamp(1.50rem, 1.25rem + 1.25vw, 2.00rem);
+      --font-size-2xl:       clamp(1.90rem, 1.50rem + 2.00vw, 2.75rem);
+      --font-size-3xl:       clamp(2.25rem, 1.75rem + 2.50vw, 3.50rem);
+      --font-size-4xl:       clamp(2.75rem, 2.00rem + 3.75vw, 4.75rem);
+
+      --font-weight-light:   300;
+      --font-weight-regular: 400;
+      --font-weight-medium:  500;
+      --font-weight-semibold:600;
+      --font-weight-bold:    700;
+      --font-weight-extrabold:800;
+
+      --line-height-tight:   1.15;
+      --line-height-snug:    1.35;
+      --line-height-normal:  1.60;
+      --line-height-relaxed: 1.75;
+
+      --letter-spacing-tight:-0.03em;
+      --letter-spacing-normal: 0em;
+      --letter-spacing-wide: 0.06em;
+      --letter-spacing-wider:0.12em;
+
+      /* Spacing Scale */
+      --space-1:  clamp(0.25rem, 0.20rem + 0.25vw, 0.35rem);
+      --space-2:  clamp(0.50rem, 0.45rem + 0.25vw, 0.60rem);
+      --space-3:  clamp(0.75rem, 0.70rem + 0.25vw, 0.90rem);
+      --space-4:  clamp(1.00rem, 0.90rem + 0.50vw, 1.25rem);
+      --space-5:  clamp(1.25rem, 1.10rem + 0.75vw, 1.75rem);
+      --space-6:  clamp(1.50rem, 1.30rem + 1.00vw, 2.00rem);
+      --space-8:  clamp(2.00rem, 1.70rem + 1.50vw, 3.00rem);
+      --space-10: clamp(2.50rem, 2.00rem + 2.50vw, 4.00rem);
+      --space-12: clamp(3.00rem, 2.40rem + 3.00vw, 5.00rem);
+      --space-16: clamp(4.00rem, 3.00rem + 5.00vw, 7.00rem);
+      --space-20: clamp(5.00rem, 3.75rem + 6.25vw, 9.00rem);
+
+      /* Border Radius */
+      --radius-sm:   0.375rem;
+      --radius-md:   0.75rem;
+      --radius-lg:   1.25rem;
+      --radius-xl:   2.00rem;
+      --radius-full:  9999px;
+
+      /* Shadows */
+      --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.40), 0 1px 2px rgba(0, 0, 0, 0.30);
+      --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.50), 0 2px 6px rgba(0, 0, 0, 0.35);
+      --shadow-lg:   0 12px 40px rgba(0, 0, 0, 0.60), 0 4px 16px rgba(0, 0, 0, 0.40);
+      --shadow-blue: 0 0 40px rgba(1, 118, 211, 0.25), 0 0 80px rgba(1, 118, 211, 0.10);
+      --shadow-cyan: 0 0 40px rgba(0, 223, 216, 0.20), 0 0 80px rgba(0, 223, 216, 0.08);
+      --shadow-gold: 0 0 30px rgba(255, 159, 67, 0.30), 0 0 60px rgba(255, 159, 67, 0.12);
+
+      /* Transitions */
+      --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      /* Layout */
+      --container-max:     1280px;
+      --container-wide:    1440px;
+      --container-narrow:  800px;
+      --nav-height:        72px;
+
+      /* Glass */
+      --glass-bg:          rgba(22, 22, 31, 0.72);
+      --glass-bg-strong:   rgba(22, 22, 31, 0.90);
+      --glass-blur:        saturate(180%) blur(20px);
+      --glass-blur-strong: saturate(200%) blur(32px);
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      font-size: 100%;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-normal);
+      color: var(--color-text-primary);
+      background-color: var(--color-base);
+      background-image:
+        var(--gradient-glow-blue),
+        var(--gradient-glow-cyan);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    img,
+    video,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+      color: inherit;
+    }
+
+    p,
+    h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ============================================
+       UTILITY: GRADIENT TEXT
+    ============================================ */
+    .gradient-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .gradient-text--gold {
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .gradient-text--hero {
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* ============================================
+       UTILITY: GLASSMORPHISM
+    ============================================ */
+    .glass {
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: var(--glass-blur);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .glass--strong {
+      background: var(--glass-bg-strong);
+      -webkit-backdrop-filter: var(--glass-blur-strong);
+      backdrop-filter: var(--glass-blur-strong);
+      border: 1px solid var(--color-border-strong);
+      border-radius: var(--radius-lg);
+    }
+
+    .glass--card {
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: var(--glass-blur);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--transition-base),
+                  box-shadow var(--transition-base),
+                  transform var(--transition-base);
+    }
+
+    .glass--card:hover {
+      border-color: rgba(1, 118, 211, 0.35);
+      box-shadow: var(--shadow-lg), var(--shadow-blue);
+      transform: translateY(-4px);
+    }
+
+    /* ============================================
+       UTILITY: LAYOUT
+    ============================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--space-6);
+    }
+
+    .container--wide {
+      max-width: var(--container-wide);
+    }
+
+    .container--narrow {
+      max-width: var(--container-narrow);
+    }
+
+    /* ============================================
+       UTILITY: TYPOGRAPHY
+    ============================================ */
+    .text-xs      { font-size: var(--font-size-xs); }
+    .text-sm      { font-size: var(--font-size-sm); }
+    .text-base    { font-size: var(--font-size-base); }
+    .text-md      { font-size: var(--font-size-md); }
+    .text-lg      { font-size: var(--font-size-lg); }
+    .text-xl      { font-size: var(--font-size-xl); }
+    .text-2xl     { font-size: var(--font-size-2xl); }
+    .text-3xl     { font-size: var(--font-size-3xl); }
+    .text-4xl     { font-size: var(--font-size-4xl); }
+
+    .text-primary   { color: var(--color-text-primary); }
+    .text-secondary { color: var(--color-text-secondary); }
+    .text-muted     { color: var(--color-text-muted); }
+    .text-blue      { color: var(--color-blue); }
+    .text-cyan      { color: var(--color-cyan); }
+    .text-gold      { color: var(--color-gold); }
+
+    .font-light     { font-weight: var(--font-weight-light); }
+    .font-regular   { font-weight: var(--font-weight-regular); }
+    .font-medium    { font-weight: var(--font-weight-medium); }
+    .font-semibold  { font-weight: var(--font-weight-semibold); }
+    .font-bold      { font-weight: var(--font-weight-bold); }
+    .font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+    .tracking-tight  { letter-spacing: var(--letter-spacing-tight); }
+    .tracking-wide   { letter-spacing: var(--letter-spacing-wide); }
+    .tracking-wider  { letter-spacing: var(--letter-spacing-wider); }
+    .uppercase       { text-transform: uppercase; }
+
+    /* ============================================
+       UTILITY: VISIBILITY
+    ============================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* ============================================
+       UTILITY: ANIMATIONS
+    ============================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in {
+        animation: fadeIn 0.6s ease forwards;
+      }
+
+      .slide-up {
+        animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(32px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes shimmer {
+        0%   { background-position: -200% center; }
+        100% { background-position:  200% center; }
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: var(--shadow-blue); }
+        50%       { box-shadow: 0 0 60px rgba(1, 118, 211, 0.45), 0 0 120px rgba(1, 118, 211, 0.20); }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0F172A;
-    --slate: #1E293B;
-    --slate2: #334155;
-    --sf-blue: #00A1E0;
-    --orange: #F97316;
-    --white: #F8FAFC;
-    --gray: #94A3B8;
-    --light: #E2E8F0;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font); background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(15,23,42,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,161,224,0.15);
-    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;
-    height: 70px; transition: all 0.3s;
-  }
-  .nav-brand { display: flex; flex-direction: column; }
-  .nav-name { font-size: 1.1rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
-  .nav-title { font-size: 0.65rem; color: var(--sf-blue); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-  .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--sf-blue); transition: width 0.3s; }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-li-link { color: var(--sf-blue) !important; font-weight: 600 !important; display: flex; align-items: center; gap: 0.4rem; }
-  .nav-li-link:hover { color: #38BDF8 !important; }
-  .nav-li-link::after { display: none !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden; padding: 7rem 2rem 4rem;
-    background: linear-gradient(135deg, var(--navy) 0%, #0C1A35 40%, #0A1628 100%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0; opacity: 0.04;
-    background-image: linear-gradient(var(--sf-blue) 1px, transparent 1px), linear-gradient(90deg, var(--sf-blue) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-glow {
-    position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,161,224,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-content { position: relative; text-align: center; max-width: 860px; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(0,161,224,0.1); border: 1px solid rgba(0,161,224,0.3);
-    color: var(--sf-blue); padding: 0.4rem 1rem; border-radius: 100px;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-    margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both;
-  }
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--sf-blue); animation: pulse 2s infinite; }
-  .hero-headline {
-    font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.05;
-    letter-spacing: -0.03em; margin-bottom: 1rem;
-    background: linear-gradient(135deg, #fff 30%, var(--sf-blue) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.25rem); color: var(--gray); max-width: 600px;
-    margin: 0 auto 2.5rem; line-height: 1.7;
-    animation: fadeUp 0.7s 0.2s ease both;
-  }
-  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600;
-    font-size: 0.95rem; text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
-  }
-  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 4px 20px rgba(249,115,22,0.35); }
-  .btn-primary:hover { background: #EA6C0A; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.45); }
-  .btn-secondary { background: transparent; color: var(--sf-blue); border: 1.5px solid var(--sf-blue); }
-  .btn-secondary:hover { background: rgba(0,161,224,0.1); transform: translateY(-2px); }
-  .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
-  .stat { text-align: center; }
-  .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--sf-blue); }
-  .stat-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
-  /* ===== SECTIONS ===== */
-  section { padding: 6rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    display: inline-block; color: var(--sf-blue); font-size: 0.75rem;
-    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800;
-    line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem;
-  }
-  .section-divider {
-    width: 48px; height: 3px; background: linear-gradient(90deg, var(--sf-blue), var(--orange));
-    border-radius: 2px; margin-bottom: 1rem;
-  }
-  /* ===== ABOUT ===== */
-  #about { background: var(--navy); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
-  .about-left { position: sticky; top: 100px; }
-  .about-avatar {
-    width: 100%; max-width: 280px; aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--slate) 0%, var(--slate2) 100%);
-    border-radius: 20px; border: 1px solid rgba(0,161,224,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 5rem; margin-bottom: 1.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,161,224,0.1);
-  }
-  .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-  .skill-tag {
-    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.2);
-    color: var(--sf-blue); padding: 0.3rem 0.8rem; border-radius: 100px;
-    font-size: 0.75rem; font-weight: 600;
-  }
-  .about-text p { color: #CBD5E1; line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.98rem; }
-  .about-text p:last-child { margin-bottom: 0; }
-  .about-text strong { color: var(--white); }
-  /* ===== FOCUS AREAS ===== */
-  .focus-section { background: var(--slate); }
-  .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .focus-card {
-    background: var(--navy); border: 1px solid rgba(0,161,224,0.12);
-    border-radius: 16px; padding: 2rem; text-align: center;
-    transition: all 0.3s; position: relative; overflow: hidden;
-  }
-  .focus-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,161,224,0.05), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .focus-card:hover { transform: translateY(-6px); border-color: rgba(0,161,224,0.35); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-  .focus-card:hover::before { opacity: 1; }
-  .focus-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .focus-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
-  .focus-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
-  /* ===== PROJECTS ===== */
-  #projects { background: var(--navy); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .project-card {
-    background: var(--slate); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px; padding: 2rem; transition: all 0.3s;
-    display: flex; flex-direction: column; position: relative; overflow: hidden;
-  }
-  .project-card::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--sf-blue), var(--orange));
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .project-card:hover { transform: translateY(-6px); border-color: rgba(0,161,224,0.25); box-shadow: 0 24px 48px rgba(0,0,0,0.35); }
-  .project-card:hover::after { opacity: 1; }
-  .project-company {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--sf-blue); margin-bottom: 0.5rem;
-  }
-  .project-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
-  .project-tag {
-    display: inline-block; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25);
-    color: var(--orange); padding: 0.2rem 0.7rem; border-radius: 100px;
-    font-size: 0.7rem; font-weight: 600; margin-bottom: 1rem;
-  }
-  .project-metrics { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
-  .metric {
-    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.15);
-    border-radius: 8px; padding: 0.4rem 0.75rem;
-    font-size: 0.8rem; color: var(--sf-blue); font-weight: 600;
-  }
-  .project-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.6; flex: 1; }
-  /* ===== EXPERIENCE ===== */
-  #experience { background: var(--slate); }
-  .timeline { position: relative; margin-top: 3rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
-    width: 2px; background: linear-gradient(180deg, var(--sf-blue), rgba(0,161,224,0.1));
-  }
-  .exp-item { display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
-  .exp-dot {
-    flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%;
-    background: var(--slate2); border: 2px solid var(--sf-blue);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; position: relative; z-index: 1;
-    box-shadow: 0 0 0 4px rgba(0,161,224,0.12);
-  }
-  .exp-card {
-    background: var(--navy); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px; padding: 1.75rem; flex: 1; transition: all 0.3s;
-  }
-  .exp-card:hover { border-color: rgba(0,161,224,0.2); transform: translateX(4px); }
-  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
-  .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--white); }
-  .exp-period {
-    font-size: 0.75rem; font-weight: 600; color: var(--sf-blue);
-    background: rgba(0,161,224,0.08); border: 1px solid rgba(0,161,224,0.2);
-    padding: 0.25rem 0.75rem; border-radius: 100px; white-space: nowrap;
-  }
-  .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--orange); margin-bottom: 0.75rem; }
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    font-size: 0.87rem; color: var(--gray); line-height: 1.6; padding: 0.2rem 0;
-    padding-left: 1.2rem; position: relative;
-  }
-  .exp-bullets li::before { content: 'â¸'; position: absolute; left: 0; color: var(--sf-blue); }
-  /* ===== CONTACT ===== */
-  #contact { background: var(--navy); }
-  .contact-inner {
-    max-width: 680px; margin: 0 auto; text-align: center;
-  }
-  .contact-cta { font-size: 1.1rem; color: var(--gray); margin: 1.5rem 0 2.5rem; line-height: 1.7; }
-  .contact-cards { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
-  .contact-card {
-    background: var(--slate); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 14px; padding: 1.5rem 2rem; transition: all 0.3s;
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    min-width: 200px;
-  }
-  .contact-card:hover { border-color: rgba(0,161,224,0.3); transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.3); }
-  .contact-card-icon { font-size: 1.6rem; }
-  .contact-card-label { font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-  .contact-card-value { font-size: 0.9rem; color: var(--white); font-weight: 600; text-decoration: none; }
-  .contact-card-value:hover { color: var(--sf-blue); }
-  /* ===== FOOTER ===== */
-  footer {
-    background: #080E1A; border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 3rem 2rem; text-align: center;
-  }
-  .footer-quote {
-    font-size: 1rem; color: var(--gray); font-style: italic;
-    max-width: 560px; margin: 0 auto 1.5rem; line-height: 1.7;
-  }
-  .footer-quote::before { content: '\"'; }
-  .footer-quote::after { content: '\"'; }
-  .footer-copy { font-size: 0.78rem; color: #475569; }
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  /* ===== SCROLLBAR ===== */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--navy); }
-  ::-webkit-scrollbar-thumb { background: var(--slate2); border-radius: 3px; }
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--slate); border-bottom: 1px solid rgba(0,161,224,0.15); padding: 1.5rem 2rem; gap: 1.25rem; }
-    .nav-links.open { display: flex; }
-    .hamburger { display: flex; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-left { position: static; }
-    .about-avatar { margin: 0 auto 1.5rem; }
-    .exp-item { gap: 1rem; }
-    .timeline::before { left: 16px; }
-    .exp-dot { width: 34px; height: 34px; font-size: 0.9rem; }
-    .hero-stats { gap: 1.5rem; }
-    .projects-grid { grid-template-columns: 1fr; }
-    section { padding: 4rem 1.25rem; }
-  }
+/* ===== GLOBAL STYLES ===== */
+:root {
+  --color-bg: #0A0A0F;
+  --color-bg-secondary: #111118;
+  --color-surface: rgba(255,255,255,0.04);
+  --color-border: rgba(255,255,255,0.08);
+  --color-text: #f0f4f8;
+  --color-text-secondary: #8b95a1;
+  --color-text-muted: #4a5568;
+  --color-accent-blue: #0176D3;
+  --color-accent-cyan: #00DFD8;
+  --color-accent-gold: #FF9F43;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Scroll Animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+[data-animate].animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnetic Button */
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--color-accent-gold) 0%, #ff8c42 100%);
+  color: #0a0a0f;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s var(--transition-spring), box-shadow 0.3s ease;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(255, 159, 67, 0.3);
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magnetic-btn:hover::before {
+  opacity: 1;
+}
+
+/* Section Styling */
+section {
+  position: relative;
+  width: 100%;
+}
+
+/* Navigation */
+.nav-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 48px;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-glass { padding: 16px 24px; }
+  .nav-links { display: none; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-brand">
-    <span class="nav-name">Dedric Brown</span>
-    <span class="nav-title">Salesforce Product Manager &bull; GTM Systems Specialist</span>
-  </div>
-  <ul class="nav-links" id="navLinks">
+<!-- Navigation -->
+<nav class="nav-glass">
+  <div class="nav-logo gradient-text">DB</div>
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#focus">Focus</a></li>
+    <li><a href="#career">Career</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="nav-li-link">&#x1F517; LinkedIn</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
-    <span></span><span></span><span></span>
+</nav>
+
+<!-- Animated background layers -->
+<div class="hero-bg" aria-hidden="true"></div>
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ââ GLASSMORPHISM NAV ââ -->
+<nav class="nav" role="navigation" aria-label="Primary navigation">
+  <a href="#" class="nav-logo" aria-label="Dedric Brown â Home">
+    <span class="nav-logo-mark" aria-hidden="true">DB</span>
+    <span>Dedric Brown</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-socials">
+    <!-- LinkedIn -->
+    <a href="#" class="nav-social-link" aria-label="LinkedIn Profile" rel="noopener noreferrer" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452Z"/>
+      </svg>
+    </a>
+    <!-- Email -->
+    <a href="mailto:hello@dedricbrown.com" class="nav-social-link" aria-label="Send Email">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
+      </svg>
+    </a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span></span> Salesforce Product Manager &bull; GTM Systems Specialist</div>
-    <h1 class="hero-headline">Untying The Knot</h1>
-    <p class="hero-sub">Transforming complex enterprise challenges into streamlined, scalable solutions&mdash;turning tangled systems, fractured workflows, and misaligned teams into clean, high-performing GTM engines.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">&#9654; View My Projects</a>
-      <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="btn btn-secondary">&#x1F517; Connect on LinkedIn</a>
+<!-- ââ HERO SECTION ââ -->
+<section class="hero" aria-labelledby="hero-name">
+
+  <!-- LEFT: TEXT CONTENT -->
+  <div class="hero-left">
+
+    <div class="hero-eyebrow" aria-hidden="true">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">Salesforce Â· Product Â· Leadership</span>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">$150M+</div><div class="stat-label">Pipeline Influenced</div></div>
-      <div class="stat"><div class="stat-num">900+</div><div class="stat-label">Sales Reps Supported</div></div>
-      <div class="stat"><div class="stat-num">$3M+</div><div class="stat-label">Cost Avoidance</div></div>
-      <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years Enterprise PM</div></div>
+
+    <h1 class="hero-name" id="hero-name">
+      <span class="hero-name-line">
+        <span class="hero-name-word">Dedric</span>
+      </span>
+      <span class="hero-name-line">
+        <span class="hero-name-word hero-name-gradient">Brown</span>
+      </span>
+    </h1>
+
+    <p class="hero-title">Salesforce Product Manager</p>
+
+    <div class="hero-divider" aria-hidden="true"></div>
+
+    <h2 class="hero-tagline">8+ Years Of Product Leadership</h2>
+
+    <p class="hero-philosophy">
+      <span class="hero-philosophy-dot" aria-hidden="true"></span>
+      Philosophy: Untying The Knot
+      <span class="hero-philosophy-dot" aria-hidden="true"></span>
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#work" class="btn-magnetic" id="cta-btn">
+        <span>View My Work</span>
+        <span class="btn-arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </span>
+      </a>
+      <a href="#about" class="btn-secondary">
+        Learn More
+      </a>
     </div>
+
+    <div class="hero-stats" role="list" aria-label="Career highlights">
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">8+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">40+</span>
+        <span class="stat-label">Products Shipped</span>
+      </div>
+      <div class="stat-item" role="listitem">
+        <span class="stat-value">$2M+</span>
+        <span class="stat-label">Revenue Impact</span>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-left reveal">
-        <div class="about-avatar">&#128104;&#8205;&#128187;</div>
-        <span class="section-label">Core Expertise</span>
-        <div class="about-skills">
-          <span class="skill-tag">Sales Cloud</span>
-          <span class="skill-tag">GTM Systems</span>
-          <span class="skill-tag">ERP Integration</span>
-          <span class="skill-tag">AI / Agentforce</span>
-          <span class="skill-tag">Territory Planning</span>
-          <span class="skill-tag">Order-to-Cash</span>
-          <span class="skill-tag">Identity &amp; Security</span>
-          <span class="skill-tag">Cross-Functional Leadership</span>
-          <span class="skill-tag">NetSuite</span>
-          <span class="skill-tag">Fullcast</span>
-          <span class="skill-tag">Agile / Scrum</span>
-          <span class="skill-tag">Stakeholder Alignment</span>
+  <!-- RIGHT: PHOTO FRAME -->
+  <div class="hero-right">
+    <div class="photo-frame-outer">
+
+      <!-- Decorative rings -->
+      <div class="deco-ring deco-ring-1" aria-hidden="true"></div>
+      <div class="deco-ring deco-ring-2" aria-hidden="true"></div>
+      <div class="deco-ring deco-ring-3" aria-hidden="true"></div>
+
+      <!-- Geometric corner SVG accents -->
+      <svg class="geo-corner geo-corner-tl" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 27 L1 1 L27 1" stroke="url(#cornerGrad)" stroke-width="2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="cornerGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00A3FF"/>
+            <stop offset="100%" stop-color="#7B2FFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <svg class="geo-corner geo-corner-tr" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 27 L1 1 L27 1" stroke="url(#cornerGrad2)" stroke-width="2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="cornerGrad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00A3FF"/>
+            <stop offset="100%" stop-color="#7B2FFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <svg class="geo-corner geo-corner-br" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 27 L1 1 L27 1" stroke="url(#cornerGrad3)" stroke-width="2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="cornerGrad3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7B2FFF"/>
+            <stop offset="100%" stop-color="#00FFD1"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <svg class="geo-corner geo-corner-bl" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 27 L1 1 L27 1" stroke="url(#cornerGrad4)" stroke-width="2" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="cornerGrad4" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7B2FFF"/>
+            <stop offset="100%" stop-color="#00FFD1"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- Photo container -->
+      <div class="photo-container">
+        <img id="hero-photo" src="https://dedricbrown.lovable.app/assets/headshot-DPsw63pq.jpeg" alt="Dedric Brown â Salesforce Product Manager" loading="eager" />
+        <div class="photo-gradient-overlay" aria-hidden="true"></div>
+        <div class="photo-accent-line" aria-hidden="true"></div>
+      </div>
+
+      <!-- Floating badge -->
+      <div class="photo-badge" aria-label="Salesforce Certified">
+        <div class="photo-badge-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <div class="photo-badge-text">
+          <span class="photo-badge-value">Certified</span>
+          <span class="photo-badge-label">Salesforce Expert</span>
         </div>
       </div>
-      <div class="about-text">
-        <span class="section-label reveal">About Me</span>
-        <div class="section-divider reveal"></div>
-        <h2 class="section-title reveal">Building Systems That Actually Work</h2>
-        <div class="reveal">
-          <p>I&rsquo;m a Salesforce Product Manager with a deep specialization in <strong>Go-To-Market (GTM) systems</strong>&mdash;the infrastructure that sits at the heart of how modern enterprise sales organizations operate, scale, and win. My career has been defined by one recurring mission: walking into environments where complexity has calcified into friction, and engineering a way out.</p>
-          <p>Most recently at <strong>Cloudflare</strong>, I&rsquo;ve led the evolution of the Salesforce Sales Cloud ecosystem that powers one of the world&rsquo;s fastest-growing security companies. From architecting an enterprise growth engine that influenced <strong>$150M+ in pipeline</strong> to integrating NetSuite ERP to collapse a 3-day month-end close to under one day, my work has consistently focused on removing the invisible drag that slows high-performing sales teams down. I also led the evaluation and deployment of <strong>Fullcast for territory and capacity planning</strong>, enabling 900+ sales reps to operate with clarity and speed during annual planning cycles.</p>
-          <p>Before Cloudflare, I spent nearly three years at <strong>Salesforce</strong> itself&mdash;first on the Identity &amp; Security team, where I managed a platform protecting <strong>$25M+ in regulated contracts</strong> and remediating 10+ critical vulnerabilities, and then on the Customer Platforms team where I drove cross-functional product strategy across enterprise CRM initiatives. Earlier in my career at <strong>NCR Corporation</strong>, I built the Salesforce product management foundation that informs everything I do today&mdash;learning how to translate business complexity into platform capability at scale.</p>
-          <p>Today, I&rsquo;m most energized by the intersection of <strong>AI, automation, and GTM strategy</strong>. My work implementing Salesforce Agentforce for GTM sales teams has demonstrated what&rsquo;s possible when you pair thoughtful product design with emerging AI capabilities&mdash;reducing manual data entry by 40%+ and achieving 85%+ prediction accuracy on opportunity outcomes. I believe the next generation of enterprise software won&rsquo;t just automate tasks&mdash;it will amplify human judgment. That&rsquo;s the future I&rsquo;m building toward.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOCUS AREAS -->
-<section class="focus-section">
-  <div class="container">
-    <div style="text-align:center;" class="reveal">
-      <span class="section-label">What I Do Best</span>
-      <div class="section-divider" style="margin: 0.75rem auto 0.5rem;"></div>
-      <h2 class="section-title">Core Focus Areas</h2>
-    </div>
-    <div class="focus-grid">
-      <div class="focus-card reveal">
-        <div class="focus-icon">&#x1F5FA;</div>
-        <div class="focus-title">GTM Systems Architecture</div>
-        <div class="focus-desc">Designing and optimizing the Salesforce ecosystems that power enterprise sales motion&mdash;from lead routing to revenue recognition.</div>
-      </div>
-      <div class="focus-card reveal">
-        <div class="focus-icon">&#x1F3AF;</div>
-        <div class="focus-title">Enterprise CRM Strategy</div>
-        <div class="focus-desc">Translating complex business requirements into scalable CRM architectures that align with revenue goals and organizational growth.</div>
-      </div>
-      <div class="focus-card reveal">
-        <div class="focus-icon">&#x1F916;</div>
-        <div class="focus-title">AI &amp; Automation</div>
-        <div class="focus-desc">Implementing Agentforce and intelligent automation to eliminate repetitive work and surface actionable insights for sales teams.</div>
-      </div>
-      <div class="focus-card reveal">
-        <div class="focus-icon">&#x1F91D;</div>
-        <div class="focus-title">Cross-Functional Leadership</div>
-        <div class="focus-desc">Aligning engineering, sales ops, finance, and GTM leadership around shared product roadmaps and measurable outcomes.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <span class="section-label reveal">Case Studies</span>
-    <div class="section-divider reveal"></div>
-    <h2 class="section-title reveal">Featured Projects</h2>
-    <p class="reveal" style="color:var(--gray); max-width:560px; font-size:0.95rem; margin-bottom:0;">A selection of high-impact initiatives that transformed enterprise GTM systems, drove measurable business outcomes, and untied some very complex knots.</p>
-    <div class="projects-grid">
-
-      <div class="project-card reveal">
-        <div class="project-company">Cloudflare</div>
-        <h3 class="project-title">Enterprise Growth Engine</h3>
-        <span class="project-tag">Sales Cloud Optimization</span>
-        <div class="project-metrics">
-          <span class="metric">$150M+ Pipeline</span>
-          <span class="metric">35% Adoption Increase</span>
-          <span class="metric">40+ Bottlenecks Removed</span>
-          <span class="metric">15+ Stakeholders Aligned</span>
-        </div>
-        <p class="project-desc">Led a comprehensive Salesforce Sales Cloud optimization initiative to support Cloudflare&rsquo;s rapid enterprise growth. Eliminated 40+ workflow bottlenecks that were slowing deal velocity, aligned 15+ cross-functional stakeholders across Sales, RevOps, and Finance, and drove a 35% increase in platform adoption. The resulting system influenced $150M+ in pipeline by giving reps cleaner data, smarter automation, and faster access to the insights they needed to close.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-company">Cloudflare</div>
-        <h3 class="project-title">NetSuite ERP Integration</h3>
-        <span class="project-tag">Order-to-Cash Transformation</span>
-        <div class="project-metrics">
-          <span class="metric">25+ Handoffs Eliminated</span>
-          <span class="metric">3 Days &rarr; &lt;1 Day Close</span>
-        </div>
-        <p class="project-desc">Designed and delivered a bi-directional Salesforce&ndash;NetSuite integration that fundamentally transformed Cloudflare&rsquo;s Order-to-Cash process. By eliminating 25+ manual handoff points between systems, the integration compressed month-end close from 3+ days to under 1 day. This initiative reduced revenue leakage from data discrepancies, improved billing accuracy, and freed finance and sales ops teams from hours of reconciliation work every month.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-company">Cloudflare</div>
-        <h3 class="project-title">Fullcast GTM Territory &amp; Capacity Planning</h3>
-        <span class="project-tag">GTM Planning Platform</span>
-        <div class="project-metrics">
-          <span class="metric">900+ Sales Reps Supported</span>
-          <span class="metric">75% Faster Rollouts</span>
-          <span class="metric">5-Vendor Evaluation</span>
-        </div>
-        <p class="project-desc">Owned a rigorous 5-vendor evaluation process to select and implement Fullcast as Cloudflare&rsquo;s territory and capacity planning platform. This replaced a fragmented, spreadsheet-heavy process with a dynamic, data-driven system supporting 900+ sales reps. Annual planning rollouts that previously took weeks were completed 75% faster, enabling leadership to model scenarios, deploy territories, and adjust capacity in real time as business conditions evolved.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-company">Cloudflare</div>
-        <h3 class="project-title">AI Agentforce for GTM Sales Teams</h3>
-        <span class="project-tag">Salesforce Agentforce</span>
-        <div class="project-metrics">
-          <span class="metric">40%+ Data Entry Reduction</span>
-          <span class="metric">85%+ Prediction Accuracy</span>
-        </div>
-        <p class="project-desc">Spearheaded the implementation of Salesforce Agentforce to bring AI-powered assistance directly into the daily workflows of Cloudflare&rsquo;s GTM sales teams. The deployment achieved a 40%+ reduction in manual data entry by automating activity capture, contact enrichment, and opportunity updates. Predictive models achieved 85%+ accuracy on deal outcome forecasts, enabling front-line managers to prioritize coaching and intervention where it mattered most.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-company">Salesforce</div>
-        <h3 class="project-title">Enterprise Identity &amp; Security Platform</h3>
-        <span class="project-tag">Identity &amp; Security</span>
-        <div class="project-metrics">
-          <span class="metric">$3M+ Cost Avoidance</span>
-          <span class="metric">10+ Vulnerabilities Fixed</span>
-          <span class="metric">$25M+ Contracts Protected</span>
-        </div>
-        <p class="project-desc">As Product Manager for Salesforce&rsquo;s internal Identity &amp; Security platform, I managed a product that served as the security backbone for 25M+ in regulated enterprise contracts. Led the identification and remediation of 10+ critical platform vulnerabilities, achieving $3M+ in cost avoidance by preventing potential compliance failures and security incidents. Worked closely with Legal, Compliance, and Engineering to ensure the platform met evolving enterprise and government security standards.</p>
+      <!-- Top tag -->
+      <div class="photo-tag" aria-label="Open to work">
+        Open to Work
       </div>
 
     </div>
   </div>
-</section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <span class="section-label reveal">Career Journey</span>
-    <div class="section-divider reveal"></div>
-    <h2 class="section-title reveal">Work Experience</h2>
-    <div class="timeline">
-
-      <div class="exp-item reveal">
-        <div class="exp-dot">&#x2601;</div>
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role">Salesforce Product Manager, GTM Systems</div>
-            <span class="exp-period">Apr 2023 &ndash; Present</span>
-          </div>
-          <div class="exp-company">Cloudflare</div>
-          <ul class="exp-bullets">
-            <li>Architected and optimized Sales Cloud ecosystem supporting $150M+ in pipeline across enterprise segments</li>
-            <li>Led NetSuite ERP integration eliminating 25+ manual handoffs and reducing month-end close from 3 days to under 1 day</li>
-            <li>Conducted 5-vendor evaluation and implemented Fullcast for territory &amp; capacity planning across 900+ reps</li>
-            <li>Deployed Salesforce Agentforce AI, achieving 40%+ data entry reduction and 85%+ forecast accuracy</li>
-            <li>Eliminated 40+ workflow bottlenecks and aligned 15+ cross-functional stakeholders on product roadmap</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-dot">&#x2605;</div>
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role">Product Manager, Customer Platforms</div>
-            <span class="exp-period">Jun 2021 &ndash; Apr 2023</span>
-          </div>
-          <div class="exp-company">Salesforce</div>
-          <ul class="exp-bullets">
-            <li>Drove cross-functional CRM product strategy across enterprise platform initiatives at scale</li>
-            <li>Partnered with Sales, Customer Success, and Engineering to define and ship platform improvements</li>
-            <li>Managed complex stakeholder landscapes across multiple business units and geographies</li>
-            <li>Built product roadmaps grounded in data analysis, customer research, and business impact modeling</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-dot">&#x1F512;</div>
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role">Product Manager, Identity &amp; Security</div>
-            <span class="exp-period">Jan 2020 &ndash; Jun 2021</span>
-          </div>
-          <div class="exp-company">Salesforce</div>
-          <ul class="exp-bullets">
-            <li>Managed internal identity &amp; security platform protecting $25M+ in regulated enterprise contracts</li>
-            <li>Identified and remediated 10+ critical platform vulnerabilities, achieving $3M+ in cost avoidance</li>
-            <li>Collaborated with Legal, Compliance, and Security Engineering to meet evolving regulatory standards</li>
-            <li>Translated complex security requirements into actionable engineering backlogs and release plans</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-dot">&#x1F4CA;</div>
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-role">Salesforce Product Manager</div>
-            <span class="exp-period">Jan 2018 &ndash; Jan 2020</span>
-          </div>
-          <div class="exp-company">NCR Corporation</div>
-          <ul class="exp-bullets">
-            <li>Built foundational Salesforce product management capabilities supporting NCR&rsquo;s global sales organization</li>
-            <li>Drove CRM adoption initiatives across distributed sales teams in a complex enterprise environment</li>
-            <li>Partnered with Sales Operations to translate field feedback into platform improvements and automation</li>
-            <li>Developed core product management methodologies that continue to inform current practice</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
+  <!-- SCROLL INDICATOR -->
+  <div class="scroll-indicator" aria-label="Scroll down">
+    <span class="scroll-indicator-text">Scroll</span>
+    <span class="scroll-indicator-icon" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </span>
   </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <span class="section-label reveal">Get In Touch</span>
-      <div class="section-divider reveal" style="margin: 0.75rem auto;"></div>
-      <h2 class="section-title reveal">Let&rsquo;s Work Together</h2>
-      <p class="contact-cta reveal">Let&rsquo;s discuss how I can help transform your GTM systems&mdash;whether you&rsquo;re untangling a broken CRM, planning an AI initiative, or scaling a sales organization through rapid growth.</p>
-      <div class="contact-cards reveal">
-        <div class="contact-card">
-          <div class="contact-card-icon">&#x2709;</div>
-          <div class="contact-card-label">Email</div>
-          <a href="mailto:Dbrown6422@gmail.com" class="contact-card-value">Dbrown6422@gmail.com</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-card-icon">&#x1F517;</div>
-          <div class="contact-card-label">LinkedIn</div>
-          <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener" class="contact-card-value">dbrowntech</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <a href="mailto:Dbrown6422@gmail.com" class="btn btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;">&#x1F4EC; Send Me a Message</a>
-      </div>
-    </div>
-  </div>
 </section>
-
-<!-- FOOTER -->
-<footer>
-  <p class="footer-quote">The best enterprise products don&rsquo;t just solve today&rsquo;s problems &mdash; they anticipate tomorrow&rsquo;s.</p>
-  <p class="footer-copy">&copy; 2026 Dedric Brown &bull; Salesforce Product Manager &bull; All rights reserved.</p>
-</footer>
 
 <script>
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
-  hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') navLinks.classList.toggle('open'); });
-  document.querySelectorAll('#navLinks a').forEach(a => { a.addEventListener('click', () => navLinks.classList.remove('open')); });
+  /* ââ MAGNETIC BUTTON EFFECT ââ */
+  (function() {
+    const btn = document.getElementById('cta-btn');
+    if (!btn) return;
 
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
+    const STRENGTH = 0.35;
+
+    btn.addEventListener('mousemove', function(e) {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * STRENGTH;
+      const dy = (e.clientY - cy) * STRENGTH;
+      btn.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+      setTimeout(function() { btn.style.transition = ''; }, 600);
+    });
+
+    btn.addEventListener('mouseenter', function() {
+      btn.style.transition = 'transform 0.15s linear';
+    });
+  })();
+
+  /* ââ SUBTLE PARALLAX ON HERO RIGHT ââ */
+  (function() {
+    const heroRight = document.querySelector('.hero-right');
+    if (!heroRight || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    window.addEventListener('mousemove', function(e) {
+      const xRatio = (e.clientX / window.innerWidth - 0.5);
+      const yRatio = (e.clientY / window.innerHeight - 0.5);
+      heroRight.style.transform = 'translate(' + (xRatio * 12) + 'px, ' + (yRatio * 8) + 'px)';
+    }, { passive: true });
+  })();
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  .about-section {
+    position: relative;
+    background: #0a0a0f;
+    padding: 120px 0;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .about-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  }
+
+  .about-eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6366f1;
+  }
+
+  .about-quote-icon {
+    margin-bottom: 28px;
+    opacity: 0.18;
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-paragraph {
+    font-size: 17px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .about-paragraph:first-of-type {
+    font-size: 20px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+  }
+
+  .about-gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+
+  .about-gradient-text-gold {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fde68a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+
+  .about-accent-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(99,102,241,0.4) 0%, rgba(139,92,246,0.2) 60%, transparent 100%);
+    margin: 8px 0;
+  }
+
+  .about-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 12px;
+  }
+
+  .about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.3);
+  }
+
+  .about-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(99,102,241,0.45);
+  }
+
+  .about-stats-row {
+    display: flex;
+    gap: 36px;
+    margin-top: 8px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .about-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .about-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .about-stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* RIGHT COLUMN */
+  .about-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-deco-card {
+    position: relative;
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 24px;
+    padding: 40px 36px;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+  }
+
+  .about-deco-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(139,92,246,0.5), transparent);
+  }
+
+  .about-deco-svg-wrap {
+    position: relative;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .about-companies {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-company-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .about-company-item:hover {
+    border-color: rgba(99,102,241,0.3);
+    background: rgba(99,102,241,0.05);
+  }
+
+  .about-company-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .about-company-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.01em;
+    flex: 1;
+  }
+
+  .about-company-role {
+    font-size: 11px;
+    color: rgba(255,255,255,0.32);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .about-deco-glow {
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-deco-glow-2 {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Parallax wrapper */
+  .about-parallax-right {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }
+
+  /* Floating line deco */
+  .about-line-deco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.06;
+    z-index: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+    .about-right {
+      max-width: 540px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .about-container {
+      padding: 0 32px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-section {
+      padding: 80px 0;
+    }
+    .about-container {
+      padding: 0 24px;
+    }
+    .about-paragraph:first-of-type {
+      font-size: 17px;
+    }
+    .about-stats-row {
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .about-stat-value {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<section class="about-section" id="about" aria-label="About Dedric Brown">
+
+  <!-- Background line decoration -->
+  <svg class="about-line-deco" width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="450" cy="450" r="420" stroke="url(#circle-grad-1)" stroke-width="0.8"/>
+    <circle cx="450" cy="450" r="320" stroke="url(#circle-grad-1)" stroke-width="0.5"/>
+    <circle cx="450" cy="450" r="220" stroke="url(#circle-grad-1)" stroke-width="0.4"/>
+    <line x1="30" y1="450" x2="870" y2="450" stroke="url(#circle-grad-1)" stroke-width="0.5"/>
+    <line x1="450" y1="30" x2="450" y2="870" stroke="url(#circle-grad-1)" stroke-width="0.5"/>
+    <defs>
+      <linearGradient id="circle-grad-1" x1="0" y1="0" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#6366f1"/>
+        <stop offset="100%" stop-color="#8b5cf6"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="about-container">
+    <div class="about-grid">
+
+      <!-- LEFT: TEXT CONTENT -->
+      <div class="about-left">
+
+        <div class="about-eyebrow">
+          <div class="about-eyebrow-line"></div>
+          <span class="about-eyebrow-text">About</span>
+        </div>
+
+        <!-- Large decorative quote SVG -->
+        <div class="about-quote-icon" aria-hidden="true">
+          <svg width="72" height="52" viewBox="0 0 72 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 52V31.2C0 22.4 1.86667 14.9333 5.6 8.8C9.33333 2.66667 15.4667 0 24 0H28.8V10.4C24.5333 10.4 21.3333 11.7333 19.2 14.4C17.0667 17.0667 16 20.5333 16 24.8V28H32V52H0ZM40 52V31.2C40 22.4 41.8667 14.9333 45.6 8.8C49.3333 2.66667 55.4667 0 64 0H68.8V10.4C64.5333 10.4 61.3333 11.7333 59.2 14.4C57.0667 17.0667 56 20.5333 56 24.8V28H72V52H40Z" fill="url(#quote-grad)"/>
+            <defs>
+              <linearGradient id="quote-grad" x1="0" y1="0" x2="72" y2="52" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#8b5cf6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="about-body">
+          <p class="about-paragraph">
+            I specialize in <span class="about-gradient-text">untying the knot</span> â transforming complex enterprise challenges into elegant, scalable solutions. With over <span class="about-gradient-text">8 years of product leadership</span> experience spanning Cloudflare, Salesforce, and NCR Corporation, I've driven <span class="about-gradient-text-gold">$150M+ in pipeline acceleration</span> and delivered mission-critical CRM transformations.
+          </p>
+
+          <div class="about-accent-line"></div>
+
+          <p class="about-paragraph">
+            My approach combines <span class="about-gradient-text">deep technical fluency</span> with strategic business acumen. I don't just manage backlogs â I architect product visions that align engineering execution with revenue outcomes. From NetSuite ERP integrations to AI-powered sales tools, I build products that move the needle.
+          </p>
+
+          <p class="about-paragraph">
+            Whether leading cross-functional teams of <span class="about-gradient-text">900+ users</span> or negotiating stakeholder alignment across Finance, Sales, and Engineering, I bring <span class="about-gradient-text">clarity to complexity</span> and deliver results that matter.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats-row">
+          <div class="about-stat">
+            <span class="about-stat-value">8+</span>
+            <span class="about-stat-label">Years Leading Product</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-value">$150M+</span>
+            <span class="about-stat-label">Pipeline Accelerated</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-value">900+</span>
+            <span class="about-stat-label">Users Served</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="about-cta-row" style="margin-top:36px;">
+          <a href="#contact" class="about-cta-btn">
+            Let's Connect
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: DECORATIVE CARD -->
+      <div class="about-right">
+        <div class="about-parallax-right" id="about-parallax">
+          <div class="about-deco-card">
+            <div class="about-deco-glow"></div>
+            <div class="about-deco-glow-2"></div>
+
+            <!-- Decorative SVG lines inside card -->
+            <div class="about-deco-svg-wrap" aria-hidden="true">
+              <svg width="100%" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid lines -->
+                <line x1="0" y1="40" x2="340" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="80" x2="340" y2="80" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="120" x2="340" y2="120" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="160" x2="340" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="68" y1="0" x2="68" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="136" y1="0" x2="136" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="204" y1="0" x2="204" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="272" y1="0" x2="272" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <!-- Chart curve -->
+                <path d="M10 150 C50 140, 80 120, 110 100 C140 80, 160 60, 200 45 C230 32, 260 28, 330 20" stroke="url(#chart-grad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Area fill -->
+                <path d="M10 150 C50 140, 80 120, 110 100 C140 80, 160 60, 200 45 C230 32, 260 28, 330 20 L330 180 L10 180 Z" fill="url(#area-grad)" opacity="0.15"/>
+                <!-- Data dots -->
+                <circle cx="110" cy="100" r="4" fill="#6366f1" opacity="0.9"/>
+                <circle cx="200" cy="45" r="4" fill="#8b5cf6" opacity="0.9"/>
+                <circle cx="330" cy="20" r="5" fill="url(#dot-grad)"/>
+                <!-- Pulse ring on last point -->
+                <circle cx="330" cy="20" r="10" stroke="#6366f1" stroke-width="1" opacity="0.3">
+                  <animate attributeName="r" values="8;16;8" dur="2.4s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite"/>
+                </circle>
+                <!-- Arrow accent -->
+                <g transform="translate(290, 8)">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M3 15L15 3M15 3H7M15 3V11" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </g>
+                <defs>
+                  <linearGradient id="chart-grad" x1="10" y1="150" x2="330" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#c084fc"/>
+                  </linearGradient>
+                  <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="180" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#8b5cf6"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+                  </linearGradient>
+                  <radialGradient id="dot-grad">
+                    <stop offset="0%" stop-color="#f0abfc"/>
+                    <stop offset="100%" stop-color="#8b5cf6"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+
+              <!-- Label -->
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                <span style="font-size:11px;color:rgba(255,255,255,0.28);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Pipeline Impact</span>
+                <span style="font-size:13px;font-weight:700;background:linear-gradient(135deg,#f59e0b,#fde68a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">+$150M+</span>
+              </div>
+            </div>
+
+            <!-- Company list -->
+            <div class="about-companies">
+              <div class="about-company-item">
+                <div class="about-company-dot" style="background:linear-gradient(135deg,#f97316,#fb923c);"></div>
+                <span class="about-company-name">Cloudflare</span>
+                <span class="about-company-role">Product Lead</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:0.3;" aria-hidden="true">
+                  <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="about-company-item">
+                <div class="about-company-dot" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);"></div>
+                <span class="about-company-name">Salesforce</span>
+                <span class="about-company-role">Product Lead</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:0.3;" aria-hidden="true">
+                  <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="about-company-item">
+                <div class="about-company-dot" style="background:linear-gradient(135deg,#10b981,#34d399);"></div>
+                <span class="about-company-name">NCR Corporation</span>
+                <span class="about-company-role">Product Lead</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:0.3;" aria-hidden="true">
+                  <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+  (function() {
+    var card = document.getElementById('about-parallax');
+    if (!card) return;
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var section = document.getElementById('about');
+          if (!section) { ticking = false; return; }
+          var rect = section.getBoundingClientRect();
+          var viewH = window.innerHeight;
+          var progress = (viewH - rect.top) / (viewH + rect.height);
+          var offset = (progress - 0.5) * 60;
+          card.style.transform = 'translateY(' + (-offset * 0.5) + 'px)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
+
+<style>
+  .focus-section {
+    padding: 100px 24px;
+    background: linear-gradient(180deg, #0a0a0f 0%, #0d0d1a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .focus-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 122, 255, 0.4), transparent);
+  }
+
+  .focus-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .focus-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .focus-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #007aff;
+    margin-bottom: 16px;
+  }
+
+  .focus-eyebrow::before,
+  .focus-eyebrow::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #007aff;
+    opacity: 0.6;
+  }
+
+  .focus-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #f5f5f7;
+    margin: 0 0 20px;
+  }
+
+  .focus-title span {
+    background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .focus-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(245, 245, 247, 0.5);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .focus-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 36px 28px;
+    cursor: default;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease,
+                background 0.3s ease;
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  .focus-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .focus-card:nth-child(1) { transition-delay: 0s; }
+  .focus-card:nth-child(2) { transition-delay: 0.1s; }
+  .focus-card:nth-child(3) { transition-delay: 0.2s; }
+  .focus-card:nth-child(4) { transition-delay: 0.3s; }
+
+  .focus-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at top left, rgba(0, 122, 255, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .focus-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 21px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(90, 200, 250, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .focus-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 122, 255, 0.35);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(0, 122, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .focus-card:hover::before {
+    opacity: 1;
+  }
+
+  .focus-card:hover::after {
+    opacity: 1;
+  }
+
+  .focus-card:hover .card-icon-wrap {
+    background: rgba(0, 122, 255, 0.18);
+    border-color: rgba(0, 122, 255, 0.4);
+    box-shadow: 0 0 24px rgba(0, 122, 255, 0.25);
+  }
+
+  .focus-card:hover .card-icon-wrap svg {
+    color: #007aff;
+  }
+
+  .card-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    color: rgba(245, 245, 247, 0.55);
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .card-number {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(0, 122, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #f5f5f7;
+    margin: 0 0 12px;
+    line-height: 1.25;
+  }
+
+  .card-desc {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(245, 245, 247, 0.48);
+    margin: 0;
+  }
+
+  .card-footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-cta {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(0, 122, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+
+  .card-cta-arrow {
+    width: 14px;
+    height: 14px;
+    color: rgba(0, 122, 255, 0.6);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .focus-card:hover .card-cta,
+  .focus-card:hover .card-cta-arrow {
+    color: #007aff;
+  }
+
+  .focus-card:hover .card-cta-arrow {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 1024px) {
+    .focus-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .focus-section {
+      padding: 72px 16px;
+    }
+
+    .focus-header {
+      margin-bottom: 48px;
+    }
+
+    .focus-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .focus-card {
+      padding: 28px 22px;
+    }
+
+    .focus-card:nth-child(1),
+    .focus-card:nth-child(2),
+    .focus-card:nth-child(3),
+    .focus-card:nth-child(4) {
+      transition-delay: 0s;
+    }
+  }
+</style>
+
+<section class="focus-section" id="focus-areas" aria-label="Core Focus Areas">
+  <div class="focus-container">
+
+    <header class="focus-header">
+      <p class="focus-eyebrow">Expertise</p>
+      <h2 class="focus-title">Core <span>Focus Areas</span></h2>
+      <p class="focus-subtitle">Where deep technical knowledge meets strategic execution â delivering outcomes that scale.</p>
+    </header>
+
+    <div class="focus-grid">
+
+      <!-- Card 1: Salesforce Ecosystem -->
+      <article class="focus-card" data-focus-card>
+        <div class="card-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <path d="M6.34 6.34a15.36 15.36 0 0 0 11.32 0"/>
+            <path d="M6.34 17.66a15.36 15.36 0 0 1 11.32 0"/>
+          </svg>
+        </div>
+        <span class="card-number">01</span>
+        <h3 class="card-title">Salesforce Ecosystem</h3>
+        <p class="card-desc">Deep expertise across Sales Cloud, Service Cloud, and platform architecture. Certified professional with hands-on implementation experience.</p>
+        <div class="card-footer">
+          <span class="card-cta">Platform Architecture</span>
+          <svg class="card-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </article>
+
+      <!-- Card 2: Enterprise Integrations -->
+      <article class="focus-card" data-focus-card>
+        <div class="card-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="7" height="7" rx="1.5"/>
+            <rect x="15" y="2" width="7" height="7" rx="1.5"/>
+            <rect x="2" y="15" width="7" height="7" rx="1.5"/>
+            <rect x="15" y="15" width="7" height="7" rx="1.5"/>
+            <path d="M9 5.5h6"/>
+            <path d="M9 18.5h6"/>
+            <path d="M5.5 9v6"/>
+            <path d="M18.5 9v6"/>
+          </svg>
+        </div>
+        <span class="card-number">02</span>
+        <h3 class="card-title">Enterprise Integrations</h3>
+        <p class="card-desc">NetSuite ERP, SAP, and multi-cloud connectivity. Order-to-cash, billing, and revenue recognition workflows.</p>
+        <div class="card-footer">
+          <span class="card-cta">Multi-Cloud Connectivity</span>
+          <svg class="card-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </article>
+
+      <!-- Card 3: AI & Automation -->
+      <article class="focus-card" data-focus-card>
+        <div class="card-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+            <path d="M8 7H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1"/>
+            <path d="M16 7h3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1"/>
+            <path d="M9 13v1a3 3 0 0 0 6 0v-1"/>
+            <path d="M12 17v3"/>
+            <path d="M9 20h6"/>
+            <circle cx="8.5" cy="8.5" r="0.75" fill="currentColor" stroke="none"/>
+            <circle cx="15.5" cy="8.5" r="0.75" fill="currentColor" stroke="none"/>
+            <path d="M10 10.5s.5.75 2 .75 2-.75 2-.75"/>
+          </svg>
+        </div>
+        <span class="card-number">03</span>
+        <h3 class="card-title">AI &amp; Automation</h3>
+        <p class="card-desc">Agentforce implementations, Einstein AI, and intelligent workflow automation that scales across 900+ user organizations.</p>
+        <div class="card-footer">
+          <span class="card-cta">Intelligent Workflows</span>
+          <svg class="card-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </article>
+
+      <!-- Card 4: Product Strategy -->
+      <article class="focus-card" data-focus-card>
+        <div class="card-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+            <line x1="12" y1="2" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <span class="card-number">04</span>
+        <h3 class="card-title">Product Strategy</h3>
+        <p class="card-desc">Roadmap development, stakeholder alignment, and cross-functional leadership that delivers measurable business outcomes.</p>
+        <div class="card-footer">
+          <span class="card-cta">Business Outcomes</span>
+          <svg class="card-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var cards = document.querySelectorAll('[data-focus-card]');
+
+    if (!cards.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            entry.target.style.transition =
+              'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ' +
+              entry.target.style.getPropertyValue('--delay') +
+              ', transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ' +
+              entry.target.style.getPropertyValue('--delay') +
+              ', box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease, background 0.3s ease';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    var delays = ['0s', '0.1s', '0.2s', '0.3s'];
+
+    cards.forEach(function (card, i) {
+      card.style.setProperty('--delay', delays[i] || '0s');
+      card.style.transitionDelay = delays[i] || '0s';
+      observer.observe(card);
+    });
+  })();
+</script>
+
+<section class="cj-section" id="career">
+
+  <!-- HEADER -->
+  <header class="cj-header">
+    <div class="cj-eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Professional Experience
+    </div>
+    <h2 class="cj-title">Career <span>Journey</span></h2>
+    <p class="cj-subtitle">6+ years driving product strategy, revenue acceleration, and platform modernization across enterprise technology.</p>
+  </header>
+
+  <!-- TIMELINE -->
+  <div class="cj-timeline">
+    <div class="cj-timeline__line"></div>
+
+    <!-- ââ ITEM 1: Cloudflare ââ -->
+    <div class="cj-item cj-item--left" id="item-0">
+      <div class="cj-card-wrap">
+        <div class="cj-card">
+          <div class="cj-card__header" onclick="toggleItem('item-0')">
+            <div class="cj-card__header-text">
+              <div class="cj-company">Cloudflare</div>
+              <div class="cj-role">Salesforce Product Manager â GTM Systems</div>
+              <div class="cj-meta">
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Apr 2023 â Present
+                </span>
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Atlanta, GA
+                </span>
+              </div>
+            </div>
+            <div class="cj-date-badge cj-date-badge--cf">
+              <span>2023</span>
+              <span class="present">PRESENT</span>
+            </div>
+            <div class="cj-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="cj-card__body">
+            <div class="cj-card__body-inner">
+              <div class="cj-impact">
+                <span class="cj-impact-chip--orange">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  $150M+ Pipeline Accelerated
+                </span>
+                <span class="cj-impact-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  ERP Integration
+                </span>
+              </div>
+              <ul class="cj-achievements">
+                <li>Accelerated $150M+ in pipeline through optimized GTM systems and Salesforce platform enhancements.</li>
+                <li>Led NetSuite ERP integration strategy, streamlining finance and operations data flows across teams.</li>
+                <li>Owned Order-to-Cash and Accounts Receivable roadmap, reducing friction across the revenue lifecycle.</li>
+                <li>Partnered with cross-functional stakeholders to align product deliverables with enterprise-scale GTM objectives.</li>
+              </ul>
+              <div class="cj-photos">
+                <div class="cj-photo-thumb cj-photo-thumb--orange">GTM<br>Strategy</div>
+                <div class="cj-photo-thumb cj-photo-thumb--orange">ERP<br>Integration</div>
+                <div class="cj-photo-thumb cj-photo-thumb--orange">Order-to-Cash<br>Roadmap</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cj-item__center">
+        <div class="cj-badge cj-badge--cf" title="Cloudflare">CF</div>
+        <div class="cj-connector"></div>
+      </div>
+      <div class="cj-item__empty"></div>
+    </div>
+
+    <!-- ââ ITEM 2: Salesforce â Customer Platforms ââ -->
+    <div class="cj-item cj-item--right" id="item-1">
+      <div class="cj-item__empty"></div>
+      <div class="cj-item__center">
+        <div class="cj-badge cj-badge--sf1" title="Salesforce">SF</div>
+        <div class="cj-connector"></div>
+      </div>
+      <div class="cj-card-wrap">
+        <div class="cj-card">
+          <div class="cj-card__header" onclick="toggleItem('item-1')">
+            <div class="cj-card__header-text">
+              <div class="cj-company">Salesforce</div>
+              <div class="cj-role">Product Manager, Customer Platforms</div>
+              <div class="cj-meta">
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Jun 2021 â Apr 2023
+                </span>
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Atlanta, GA
+                </span>
+              </div>
+            </div>
+            <div class="cj-date-badge cj-date-badge--sf1">
+              <span>2021</span>
+              <span class="present">2023</span>
+            </div>
+            <div class="cj-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="cj-card__body">
+            <div class="cj-card__body-inner">
+              <div class="cj-impact">
+                <span class="cj-impact-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  $15M+ Contract Protection
+                </span>
+                <span class="cj-impact-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Marketing Cloud
+                </span>
+              </div>
+              <ul class="cj-achievements">
+                <li>Protected $15M+ in at-risk contracts through proactive platform stability and customer retention initiatives.</li>
+                <li>Led Marketing Cloud product enhancements enabling personalized customer engagement at enterprise scale.</li>
+                <li>Delivered an ad-trafficking platform that improved campaign execution speed and targeting accuracy.</li>
+                <li>Collaborated with engineering, design, and commercial teams on full product lifecycle delivery.</li>
+              </ul>
+              <div class="cj-photos">
+                <div class="cj-photo-thumb">Marketing<br>Cloud</div>
+                <div class="cj-photo-thumb">Ad<br>Trafficking</div>
+                <div class="cj-photo-thumb">Customer<br>Platforms</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ââ ITEM 3: Salesforce â Identity & Security ââ -->
+    <div class="cj-item cj-item--left" id="item-2">
+      <div class="cj-card-wrap">
+        <div class="cj-card">
+          <div class="cj-card__header" onclick="toggleItem('item-2')">
+            <div class="cj-card__header-text">
+              <div class="cj-company">Salesforce</div>
+              <div class="cj-role">Product Manager, Identity &amp; Security</div>
+              <div class="cj-meta">
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Jan 2020 â Jun 2021
+                </span>
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Atlanta, GA
+                </span>
+              </div>
+            </div>
+            <div class="cj-date-badge cj-date-badge--sf2">
+              <span>2020</span>
+              <span class="present">2021</span>
+            </div>
+            <div class="cj-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="cj-card__body">
+            <div class="cj-card__body-inner">
+              <div class="cj-impact">
+                <span class="cj-impact-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  $3M+ Cost Avoidance
+                </span>
+                <span class="cj-impact-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  $25M+ Regulated Contracts
+                </span>
+              </div>
+              <ul class="cj-achievements">
+                <li>Achieved $3M+ in cost avoidance by optimizing IAM frameworks and reducing redundant security tooling.</li>
+                <li>Enabled $25M+ in regulated-industry contracts by delivering compliance-ready identity and access controls.</li>
+                <li>Designed and shipped IAM product features supporting enterprise-grade authentication and authorization.</li>
+                <li>Worked closely with security, legal, and enterprise sales teams to align product with regulatory mandates.</li>
+              </ul>
+              <div class="cj-photos">
+                <div class="cj-photo-thumb">IAM<br>Frameworks</div>
+                <div class="cj-photo-thumb">Security<br>Compliance</div>
+                <div class="cj-photo-thumb">Identity<br>Platform</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cj-item__center">
+        <div class="cj-badge cj-badge--sf2" title="Salesforce">SF</div>
+        <div class="cj-connector"></div>
+      </div>
+      <div class="cj-item__empty"></div>
+    </div>
+
+    <!-- ââ ITEM 4: NCR Corporation ââ -->
+    <div class="cj-item cj-item--right" id="item-3">
+      <div class="cj-item__empty"></div>
+      <div class="cj-item__center">
+        <div class="cj-badge cj-badge--ncr" title="NCR Corporation">NCR</div>
+        <div class="cj-connector"></div>
+      </div>
+      <div class="cj-card-wrap">
+        <div class="cj-card">
+          <div class="cj-card__header" onclick="toggleItem('item-3')">
+            <div class="cj-card__header-text">
+              <div class="cj-company">NCR Corporation</div>
+              <div class="cj-role">Product Manager</div>
+              <div class="cj-meta">
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Jan 2018 â Jan 2020
+                </span>
+                <span class="cj-meta-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Atlanta, GA
+                </span>
+              </div>
+            </div>
+            <div class="cj-date-badge cj-date-badge--ncr">
+              <span>2018</span>
+              <span class="present">2020</span>
+            </div>
+            <div class="cj-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="cj-card__body">
+            <div class="cj-card__body-inner">
+              <div class="cj-impact">
+                <span class="cj-impact-chip--green">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  $1.8M+ Cost Savings
+                </span>
+                <span class="cj-impact-chip--green">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  $20M+ Contract Protection
+                </span>
+              </div>
+              <ul class="cj-achievements">
+                <li>Delivered $1.8M+ in cost savings through CRM modernization and elimination of legacy system overhead.</li>
+                <li>Protected $20M+ in enterprise contracts through platform reliability improvements and client retention programs.</li>
+                <li>Led end-to-end CRM modernization initiative, improving sales team efficiency and pipeline visibility.</li>
+                <li>Defined product requirements and managed delivery for multiple cross-functional technology initiatives.</li>
+              </ul>
+              <div class="cj-photos">
+                <div class="cj-photo-thumb cj-photo-thumb--teal">CRM<br>Modernization</div>
+                <div class="cj-photo-thumb cj-photo-thumb--teal">Cost<br>Savings</div>
+                <div class="cj-photo-thumb cj-photo-thumb--teal">Contract<br>Retention</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cj-timeline -->
+
+  <!-- STATS STRIP -->
+  <div class="cj-stats">
+    <div class="cj-stat">
+      <div class="cj-stat__value">$150M+</div>
+      <div class="cj-stat__label">Pipeline<br>Accelerated</div>
+    </div>
+    <div class="cj-stat">
+      <div class="cj-stat__value">$40M+</div>
+      <div class="cj-stat__label">Contracts<br>Protected</div>
+    </div>
+    <div class="cj-stat">
+      <div class="cj-stat__value">$4.8M+</div>
+      <div class="cj-stat__label">Cost<br>Avoidance &amp; Savings</div>
+    </div>
+    <div class="cj-stat">
+      <div class="cj-stat__value">6+ Yrs</div>
+      <div class="cj-stat__label">Enterprise PM<br>Experience</div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  function toggleItem(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isOpen = el.classList.contains('is-open');
+    // Close all
+    document.querySelectorAll('.cj-item.is-open').forEach(function(item) {
+      item.classList.remove('is-open');
+    });
+    // Open clicked if it wasn't open
+    if (!isOpen) {
+      el.classList.add('is-open');
+    }
+  }
+</script>
+
+<section class="projects-section" id="projects">
+  <div class="projects-container">
+
+    <!-- Section Header -->
+    <div class="projects-header reveal">
+      <div class="projects-header-left">
+        <div class="section-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Selected Work</span>
+        </div>
+        <h2 class="section-title">High-Impact<br><span>Projects</span></h2>
+      </div>
+      <div class="projects-header-right">
+        <p class="section-description">A selection of enterprise-scale initiatives spanning revenue operations, platform architecture, and AI enablement â each driving measurable commercial outcomes.</p>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+
+      <!-- PROJECT 1: Cloudflare -->
+      <article class="project-card reveal reveal-delay-1" data-project="1">
+
+        <!-- Image Panel -->
+        <div class="project-image-panel">
+          <div class="project-image-inner">
+            <div class="image-visual">
+              <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid Lines -->
+                <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="0" y1="200" x2="600" y2="200" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="0" y1="300" x2="600" y2="300" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="0" y1="400" x2="600" y2="400" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="100" y1="0" x2="100" y2="520" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="200" y1="0" x2="200" y2="520" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="300" y1="0" x2="300" y2="520" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="400" y1="0" x2="400" y2="520" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <line x1="500" y1="0" x2="500" y2="520" stroke="rgba(79,142,247,0.08)" stroke-width="1"/>
+                <!-- Central glow -->
+                <circle cx="300" cy="260" r="180" fill="url(#p1glow)" opacity="0.6"/>
+                <!-- Architecture nodes -->
+                <circle cx="300" cy="260" r="48" fill="rgba(79,142,247,0.12)" stroke="rgba(79,142,247,0.4)" stroke-width="1.5"/>
+                <circle cx="300" cy="260" r="28" fill="rgba(79,142,247,0.18)" stroke="rgba(79,142,247,0.6)" stroke-width="1"/>
+                <!-- Salesforce icon center -->
+                <text x="300" y="266" text-anchor="middle" font-size="14" font-weight="700" fill="rgba(79,142,247,0.9)" font-family="Inter">SF</text>
+                <!-- Connecting lines -->
+                <line x1="300" y1="212" x2="300" y2="140" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="300" y1="308" x2="300" y2="380" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="252" y1="240" x2="170" y2="200" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="348" y1="240" x2="430" y2="200" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="252" y1="280" x2="160" y2="330" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="348" y1="280" x2="440" y2="330" stroke="rgba(79,142,247,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                <!-- Satellite nodes -->
+                <circle cx="300" cy="118" r="26" fill="rgba(124,109,240,0.12)" stroke="rgba(124,109,240,0.35)" stroke-width="1"/>
+                <text x="300" y="122" text-anchor="middle" font-size="9" font-weight="600" fill="rgba(124,109,240,0.8)" font-family="Inter">Finance</text>
+                <circle cx="300" cy="398" r="26" fill="rgba(124,109,240,0.12)" stroke="rgba(124,109,240,0.35)" stroke-width="1"/>
+                <text x="300" y="402" text-anchor="middle" font-size="9" font-weight="600" fill="rgba(124,109,240,0.8)" font-family="Inter">Sales</text>
+                <circle cx="148" cy="190" r="28" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+                <text x="148" y="194" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(52,211,153,0.8)" font-family="Inter">NetSuite</text>
+                <circle cx="452" cy="190" r="28" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+                <text x="452" y="194" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(52,211,153,0.8)" font-family="Inter">ERP</text>
+                <circle cx="140" cy="335" r="24" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <text x="140" y="339" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(245,158,11,0.8)" font-family="Inter">GTM</text>
+                <circle cx="460" cy="335" r="24" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <text x="460" y="339" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(245,158,11,0.8)" font-family="Inter">Data</text>
+                <!-- Orbital ring -->
+                <circle cx="300" cy="260" r="100" fill="none" stroke="rgba(79,142,247,0.1)" stroke-width="1" stroke-dasharray="6 4"/>
+                <circle cx="300" cy="260" r="155" fill="none" stroke="rgba(79,142,247,0.06)" stroke-width="1" stroke-dasharray="3 6"/>
+                <!-- Metric callout -->
+                <rect x="32" y="50" width="120" height="52" rx="8" fill="rgba(0,0,0,0.5)" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <text x="92" y="72" text-anchor="middle" font-size="18" font-weight="800" fill="rgba(79,142,247,1)" font-family="Inter">$50M+</text>
+                <text x="92" y="90" text-anchor="middle" font-size="9" font-weight="500" fill="rgba(255,255,255,0.4)" font-family="Inter">Revenue Growth</text>
+                <defs>
+                  <radialGradient id="p1glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(79,142,247,0.15)"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="image-overlay"></div>
+          <div class="project-number-badge">PROJECT / 01</div>
+          <div class="project-status">
+            <div class="status-dot"></div>
+            <span class="status-text">Enterprise Scale</span>
+          </div>
+        </div>
+
+        <!-- Content Panel -->
+        <div class="project-content-panel">
+          <div class="project-number-large">01</div>
+
+          <div class="company-badge">
+            <div class="company-icon" style="background: rgba(245,100,0,0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="rgba(245,140,60,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="company-name">Cloudflare Â· Enterprise Growth</span>
+          </div>
+
+          <h3 class="project-title">GTM Operations Scaling & Revenue Architecture</h3>
+
+          <p class="project-challenge">Fragmented data across Finance, Accounting, and Sales created bottlenecks threatening commercial momentum. Needed a unified data architecture to support rapid enterprise growth.</p>
+
+          <div class="project-details">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1l1.5 3L13 4.5l-2.5 2.5.5 3.5L8 8.5 5 10.5l.5-3.5L3 4.5l3.5-.5L8 1z" stroke="rgba(79,142,247,0.8)" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Approach</div>
+                <div class="detail-value">Led stakeholder alignment across 5+ departments, designed scalable data architecture with governance frameworks</div>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="2" width="5" height="5" rx="1" stroke="rgba(124,109,240,0.8)" stroke-width="1.2"/>
+                  <rect x="9" y="2" width="5" height="5" rx="1" stroke="rgba(124,109,240,0.8)" stroke-width="1.2"/>
+                  <rect x="2" y="9" width="5" height="5" rx="1" stroke="rgba(124,109,240,0.8)" stroke-width="1.2"/>
+                  <rect x="9" y="9" width="5" height="5" rx="1" stroke="rgba(124,109,240,0.8)" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Technical Stack</div>
+                <div class="detail-value">Salesforce Sales Cloud, NetSuite ERP integration, custom automation workflows</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag tag-blue"><span class="tech-tag-dot"></span>Salesforce Sales Cloud</span>
+            <span class="tech-tag tag-purple"><span class="tech-tag-dot"></span>NetSuite ERP</span>
+            <span class="tech-tag tag-green"><span class="tech-tag-dot"></span>Data Architecture</span>
+            <span class="tech-tag tag-amber"><span class="tech-tag-dot"></span>GTM Strategy</span>
+            <span class="tech-tag tag-rose"><span class="tech-tag-dot"></span>Automation</span>
+          </div>
+
+          <div class="outcomes-strip">
+            <div class="outcome-item outcome-blue">
+              <div class="outcome-value">$50M+</div>
+              <div class="outcome-label">Commercial Growth</div>
+            </div>
+            <div class="outcome-item outcome-green">
+              <div class="outcome-value">35%</div>
+              <div class="outcome-label">Platform Adoption</div>
+            </div>
+            <div class="outcome-item outcome-purple">
+              <div class="outcome-value">5+</div>
+              <div class="outcome-label">Depts Aligned</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: Salesforce -->
+      <article class="project-card reveal reveal-delay-2" data-project="2">
+
+        <!-- Image Panel -->
+        <div class="project-image-panel">
+          <div class="project-image-inner">
+            <div class="image-visual">
+              <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background elements -->
+                <circle cx="300" cy="260" r="200" fill="url(#p2glow)" opacity="0.5"/>
+                <!-- Migration flow visualization -->
+                <!-- Left block - old platform -->
+                <rect x="60" y="160" width="160" height="200" rx="12" fill="rgba(52,211,153,0.06)" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <rect x="80" y="180" width="120" height="24" rx="4" fill="rgba(52,211,153,0.1)" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <text x="140" y="196" text-anchor="middle" font-size="9" font-weight="600" fill="rgba(52,211,153,0.7)" font-family="Inter">Marketing Cloud</text>
+                <rect x="80" y="214" width="120" height="20" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="80" y="244" width="120" height="20" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="80" y="274" width="120" height="20" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="80" y="304" width="80" height="20" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <!-- Contract badge -->
+                <rect x="60" y="374" width="160" height="40" rx="8" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.25)" stroke-width="1"/>
+                <text x="140" y="390" text-anchor="middle" font-size="9" font-weight="700" fill="rgba(52,211,153,0.9)" font-family="Inter">$15M+ Contracts</text>
+                <text x="140" y="404" text-anchor="middle" font-size="8" font-weight="500" fill="rgba(52,211,153,0.5)" font-family="Inter">100% Retained â</text>
+                <!-- Arrow flow -->
+                <path d="M230 260 L370 260" stroke="rgba(52,211,153,0.4)" stroke-width="2" stroke-dasharray="6 4"/>
+                <polygon points="370,255 380,260 370,265" fill="rgba(52,211,153,0.6)"/>
+                <!-- Center migration label -->
+                <rect x="252" y="240" width="96" height="40" rx="6" fill="rgba(0,0,0,0.6)" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <text x="300" y="257" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(52,211,153,0.8)" font-family="Inter">MIGRATION</text>
+                <text x="300" y="272" text-anchor="middle" font-size="7" font-weight="500" fill="rgba(255,255,255,0.3)" font-family="Inter">Zero Downtime</text>
+                <!-- Right block - new platform -->
+                <rect x="380" y="160" width="160" height="200" rx="12" fill="rgba(79,142,247,0.06)" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <rect x="400" y="180" width="120" height="24" rx="4" fill="rgba(79,142,247,0.12)" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <text x="460" y="196" text-anchor="middle" font-size="9" font-weight="600" fill="rgba(79,142,247,0.8)" font-family="Inter">Ad Platform</text>
+                <rect x="400" y="214" width="120" height="20" rx="4" fill="rgba(79,142,247,0.06)" stroke="rgba(79,142,247,0.1)" stroke-width="1"/>
+                <rect x="400" y="244" width="120" height="20" rx="4" fill="rgba(79,142,247,0.06)" stroke="rgba(79,142,247,0.1)" stroke-width="1"/>
+                <rect x="400" y="274" width="120" height="20" rx="4" fill="rgba(79,142,247,0.06)" stroke="rgba(79,142,247,0.1)" stroke-width="1"/>
+                <rect x="400" y="304" width="80" height="20" rx="4" fill="rgba(79,142,247,0.06)" stroke="rgba(79,142,247,0.1)" stroke-width="1"/>
+                <!-- Performance badge -->
+                <rect x="380" y="374" width="160" height="40" rx="8" fill="rgba(79,142,247,0.08)" stroke="rgba(79,142,247,0.25)" stroke-width="1"/>
+                <text x="460" y="390" text-anchor="middle" font-size="9" font-weight="700" fill="rgba(79,142,247,0.9)" font-family="Inter">Campaign Perf</text>
+                <text x="460" y="404" text-anchor="middle" font-size="8" font-weight="500" fill="rgba(79,142,247,0.5)" font-family="Inter">Improved +28%</text>
+                <!-- Top metric -->
+                <rect x="200" y="60" width="200" height="60" rx="10" fill="rgba(0,0,0,0.5)" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <text x="300" y="86" text-anchor="middle" font-size="22" font-weight="900" fill="rgba(52,211,153,1)" font-family="Inter">100%</text>
+                <text x="300" y="106" text-anchor="middle" font-size="9" font-weight="500" fill="rgba(255,255,255,0.35)" font-family="Inter">Enterprise Contract Retention</text>
+                <defs>
+                  <radialGradient id="p2glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(52,211,153,0.12)"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="image-overlay"></div>
+          <div class="project-number-badge">PROJECT / 02</div>
+          <div class="project-status">
+            <div class="status-dot" style="background: var(--color-accent-3); box-shadow: 0 0 8px var(--color-accent-3);"></div>
+            <span class="status-text">Risk Mitigation</span>
+          </div>
+        </div>
+
+        <!-- Content Panel -->
+        <div class="project-content-panel">
+          <div class="project-number-large">02</div>
+
+          <div class="company-badge">
+            <div class="company-icon" style="background: rgba(0,140,255,0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="rgba(0,140,255,0.8)"/>
+              </svg>
+            </div>
+            <span class="company-name">Salesforce Â· Customer Platforms</span>
+          </div>
+
+          <h3 class="project-title">Critical Platform Migration & Contract Retention</h3>
+
+          <p class="project-challenge">A high-stakes platform migration threatened $15M+ in enterprise contracts. Required rapid strategic pivoting, stakeholder negotiation, and airtight risk mitigation.</p>
+
+          <div class="project-details">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M8 2v4l3 3" stroke="rgba(52,211,153,0.8)" stroke-width="1.2" stroke-linecap="round"/>
+                  <circle cx="8" cy="8" r="6" stroke="rgba(52,211,153,0.8)" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Approach</div>
+                <div class="detail-value">Rapid roadmap reprioritization, stakeholder negotiation, and layered risk mitigation strategy</div>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4h12v8a2 2 0 01-2 2H4a2 2 0 01-2-2V4zM5 4V2h6v2" stroke="rgba(79,142,247,0.8)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Technical Stack</div>
+                <div class="detail-value">Marketing Cloud, ad-trafficking platform, cross-cloud integration layer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag tag-green"><span class="tech-tag-dot"></span>Marketing Cloud</span>
+            <span class="tech-tag tag-blue"><span class="tech-tag-dot"></span>Ad Trafficking</span>
+            <span class="tech-tag tag-purple"><span class="tech-tag-dot"></span>Cross-Cloud Integration</span>
+            <span class="tech-tag tag-amber"><span class="tech-tag-dot"></span>Risk Mitigation</span>
+          </div>
+
+          <div class="outcomes-strip">
+            <div class="outcome-item outcome-green">
+              <div class="outcome-value">100%</div>
+              <div class="outcome-label">Contract Retention</div>
+            </div>
+            <div class="outcome-item outcome-blue">
+              <div class="outcome-value">$15M+</div>
+              <div class="outcome-label">Protected Revenue</div>
+            </div>
+            <div class="outcome-item outcome-purple">
+              <div class="outcome-value">0</div>
+              <div class="outcome-label">Downtime Events</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3: Fullcast -->
+      <article class="project-card reveal reveal-delay-3" data-project="3">
+
+        <!-- Image Panel -->
+        <div class="project-image-panel">
+          <div class="project-image-inner">
+            <div class="image-visual">
+              <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Territory map visualization -->
+                <circle cx="300" cy="260" r="200" fill="url(#p3glow)" opacity="0.4"/>
+                <!-- Territory hexagons -->
+                <polygon points="200,160 240,138 280,160 280,204 240,226 200,204" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+                <polygon points="280,160 320,138 360,160 360,204 320,226 280,204" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <polygon points="360,160 400,138 440,160 440,204 400,226 360,204" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+                <polygon points="160,226 200,204 240,226 240,270 200,292 160,270" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+                <polygon points="240,226 280,204 320,226 320,270 280,292 240,270" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.35)" stroke-width="1.5"/>
+                <polygon points="320,226 360,204 400,226 400,270 360,292 320,270" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+                <polygon points="400,226 440,204 480,226 480,270 440,292 400,270" fill="rgba(245,158,11,0.05)" stroke="rgba(245,158,11,0.18)" stroke-width="1"/>
+                <polygon points="200,292 240,270 280,292 280,336 240,358 200,336" fill="rgba(245,158,11,0.09)" stroke="rgba(245,158,11,0.28)" stroke-width="1"/>
+                <polygon points="280,292 320,270 360,292 360,336 320,358 280,336" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.22)" stroke-width="1"/>
+                <polygon points="360,292 400,270 440,292 440,336 400,358 360,336" fill="rgba(245,158,11,0.11)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <!-- Rep dots -->
+                <circle cx="240" cy="182" r="5" fill="rgba(245,158,11,0.7)"/>
+                <circle cx="320" cy="182" r="6" fill="rgba(245,158,11,0.9)"/>
+                <circle cx="400" cy="182" r="4" fill="rgba(245,158,11,0.6)"/>
+                <circle cx="200" cy="248" r="4" fill="rgba(245,158,11,0.5)"/>
+                <circle cx="280" cy="248" r="7" fill="rgba(245,158,11,1)" filter="url(#glow3)"/>
+                <circle cx="360" cy="248" r="5" fill="rgba(245,158,11,0.75)"/>
+                <circle cx="440" cy="248" r="4" fill="rgba(245,158,11,0.55)"/>
+                <circle cx="240" cy="314" r="5" fill="rgba(245,158,11,0.65)"/>
+                <circle cx="320" cy="314" r="5" fill="rgba(245,158,11,0.7)"/>
+                <circle cx="400" cy="314" r="6" fill="rgba(245,158,11,0.85)"/>
+                <!-- Metric card -->
+                <rect x="34" y="50" width="140" height="70" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+                <text x="104" y="80" text-anchor="middle" font-size="26" font-weight="900" fill="rgba(245,158,11,1)" font-family="Inter">900+</text>
+                <text x="104" y="100" text-anchor="middle" font-size="9" font-weight="500" fill="rgba(255,255,255,0.35)" font-family="Inter">Reps Enabled</text>
+                <!-- Label bottom -->
+                <rect x="200" y="390" width="200" height="40" rx="8" fill="rgba(0,0,0,0.5)" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
+                <text x="300" y="406" text-anchor="middle" font-size="9" font-weight="700" fill="rgba(245,158,11,0.8)" font-family="Inter">TERRITORY MANAGEMENT</text>
+                <text x="300" y="422" text-anchor="middle" font-size="8" font-weight="500" fill="rgba(255,255,255,0.3)" font-family="Inter">Fullcast Implementation</text>
+                <defs>
+                  <radialGradient id="p3glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(245,158,11,0.15)"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </radialGradient>
+                  <filter id="glow3">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="image-overlay"></div>
+          <div class="project-number-badge">PROJECT / 03</div>
+          <div class="project-status">
+            <div class="status-dot" style="background: var(--color-accent-warm); box-shadow: 0 0 8px var(--color-accent-warm);"></div>
+            <span class="status-text">Sales Enablement</span>
+          </div>
+        </div>
+
+        <!-- Content Panel -->
+        <div class="project-content-panel">
+          <div class="project-number-large">03</div>
+
+          <div class="company-badge">
+            <div class="company-icon" style="background: rgba(245,158,11,0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" stroke="rgba(245,158,11,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="company-name">Fullcast Â· Territory Management</span>
+          </div>
+
+          <h3 class="project-title">Enterprise Territory Planning for 900+ Sales Reps</h3>
+
+          <p class="project-challenge">Manual territory planning and quota management were creating inefficiencies at scale. Led end-to-end implementation to bring structure and transparency to field operations.</p>
+
+          <div class="project-details">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1L3 4v4c0 3.3 2.2 6.4 5 7.1 2.8-.7 5-3.8 5-7.1V4L8 1z" stroke="rgba(245,158,11,0.8)" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Approach</div>
+                <div class="detail-value">Led implementation from requirements to rollout, with structured change management and training programs</div>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="6" stroke="rgba(124,109,240,0.8)" stroke-width="1.2"/>
+                  <path d="M8 5v3l2 2" stroke="rgba(124,109,240,0.8)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Technical Stack</div>
+                <div class="detail-value">Fullcast territory management, Salesforce integration, data migration pipelines</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag tag-amber"><span class="tech-tag-dot"></span>Fullcast</span>
+            <span class="tech-tag tag-blue"><span class="tech-tag-dot"></span>Salesforce</span>
+            <span class="tech-tag tag-green"><span class="tech-tag-dot"></span>Data Migration</span>
+            <span class="tech-tag tag-purple"><span class="tech-tag-dot"></span>Change Management</span>
+            <span class="tech-tag tag-rose"><span class="tech-tag-dot"></span>Training Programs</span>
+          </div>
+
+          <div class="outcomes-strip">
+            <div class="outcome-item outcome-amber">
+              <div class="outcome-value">900+</div>
+              <div class="outcome-label">Reps Enabled</div>
+            </div>
+            <div class="outcome-item outcome-green">
+              <div class="outcome-value">â Cov</div>
+              <div class="outcome-label">Territory Coverage</div>
+            </div>
+            <div class="outcome-item outcome-blue">
+              <div class="outcome-value">â Cycle</div>
+              <div class="outcome-label">Planning Cycles</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: AI Agentforce -->
+      <article class="project-card reveal reveal-delay-4" data-project="4">
+
+        <!-- Image Panel -->
+        <div class="project-image-panel">
+          <div class="project-image-inner">
+            <div class="image-visual">
+              <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- AI network visualization -->
+                <circle cx="300" cy="260" r="200" fill="url(#p4glow)" opacity="0.5"/>
+                <!-- Neural network lines -->
+                <line x1="300" y1="130" x2="180" y2="220" stroke="rgba(124,109,240,0.2)" stroke-width="1"/>
+                <line x1="300" y1="130" x2="300" y2="220" stroke="rgba(124,109,240,0.3)" stroke-width="1"/>
+                <line x1="300" y1="130" x2="420" y2="220" stroke="rgba(124,109,240,0.2)" stroke-width="1"/>
+                <line x1="180" y1="220" x2="140" y2="320" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <line x1="180" y1="220" x2="240" y2="320" stroke="rgba(79,142,247,0.15)" stroke-width="1"/>
+                <line x1="300" y1="220" x2="240" y2="320" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <line x1="300" y1="220" x2="300" y2="320" stroke="rgba(79,142,247,0.3)" stroke-width="1"/>
+                <line x1="300" y1="220" x2="360" y2="320" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <line x1="420" y1="220" x2="360" y2="320" stroke="rgba(79,142,247,0.15)" stroke-width="1"/>
+                <line x1="420" y1="220" x2="460" y2="320" stroke="rgba(79,142,247,0.2)" stroke-width="1"/>
+                <line x1="140" y1="320" x2="300" y2="400" stroke="rgba(52,211,153,0.15)" stroke-width="1"/>
+                <line x1="240" y1="320" x2="300" y2="400" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <line x1="300" y1="320" x2="300" y2="400" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+                <line x1="360" y1="320" x2="300" y2="400" stroke="rgba(52,211,153,0.2)" stroke-width="1"/>
+                <line x1="460" y1="320" x2="300" y2="400" stroke="rgba(52,211,153,0.15)" stroke-width="1"/>
+                <!-- Input node -->
+                <circle cx="300" cy="130" r="28" fill="rgba(124,109,240,0.15)" stroke="rgba(124,109,240,0.5)" stroke-width="1.5"/>
+                <text x="300" y="127" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(124,109,240,0.9)" font-family="Inter">AGENT</text>
+                <text x="300" y="139" text-anchor="middle" font-size="7" font-weight="500" fill="rgba(124,109,240,0.6)" font-family="Inter">FORCE</text>
+                <!-- Hidden layer nodes -->
+                <circle cx="180" cy="220" r="20" fill="rgba(79,142,247,0.12)" stroke="rgba(79,142,247,0.35)" stroke-width="1"/>
+                <text x="180" y="224" text-anchor="middle" font-size="8" font-weight="600" fill="rgba(79,142,247,0.8)" font-family="Inter">AI</text>
+                <circle cx="300" cy="220" r="20" fill="rgba(79,142,247,0.15)" stroke="rgba(79,142,247,0.45)" stroke-width="1"/>
+                <text x="300" y="224" text-anchor="middle" font-size="7" font-weight="600" fill="rgba(79,142,247,0.9)" font-family="Inter">LLM</text>
+                <circle cx="420" cy="220" r="20" fill="rgba(79,142,247,0.12)" stroke="rgba(79,142,247,0.35)" stroke-width="1"/>
+                <text x="420" y="224" text-anchor="middle" font-size="7" font-weight="600" fill="rgba(79,142,247,0.8)" font-family="Inter">Flow</text>
+                <!-- Output nodes -->
+                <circle cx="140" cy="320" r="16" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.25)" stroke-width="1"/>
+                <circle cx="240" cy="320" r="16" fill="rgba(52,211,153,0.1)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+                <circle cx="300" cy="320" r="18" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
+                <circle cx="360" cy="320" r="16" fill="rgba(52,211,153,0.1)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+                <circle cx="460" cy="320" r="16" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.25)" stroke-width="1"/>
+                <!-- Output node -->
+                <circle cx="300" cy="400" r="24" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.5)" stroke-width="1.5"/>
+                <text x="300" y="397" text-anchor="middle" font-size="7" font-weight="700" fill="rgba(52,211,153,0.9)" font-family="Inter">SALES</text>
+                <text x="300" y="408" text-anchor="middle" font-size="7" font-weight="600" fill="rgba(52,211,153,0.7)" font-family="Inter">GROWTH</text>
+                <!-- Top metric -->
+                <rect x="36" y="50" width="130" height="60" rx="10" fill="rgba(0,0,0,0.55)" stroke="rgba(124,109,240,0.2)" stroke-width="1"/>
+                <text x="101" y="76" text-anchor="middle" font-size="20" font-weight="900" fill="rgba(124,109,240,1)" font-family="Inter">AI-First</text>
+                <text x="101" y="97" text-anchor="middle" font-size="8" font-weight="500" fill="rgba(255,255,255,0.35)" font-family="Inter">GTM Architecture</text>
+                <!-- Pulsing glow on central node -->
+                <circle cx="300" cy="130" r="38" fill="none" stroke="rgba(124,109,240,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+                <defs>
+                  <radialGradient id="p4glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(124,109,240,0.15)"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="image-overlay"></div>
+          <div class="project-number-badge">PROJECT / 04</div>
+          <div class="project-status">
+            <div class="status-dot" style="background: var(--color-accent-2); box-shadow: 0 0 8px var(--color-accent-2);"></div>
+            <span class="status-text">AI Innovation</span>
+          </div>
+        </div>
+
+        <!-- Content Panel -->
+        <div class="project-content-panel">
+          <div class="project-number-large">04</div>
+
+          <div class="company-badge">
+            <div class="company-icon" style="background: rgba(124,109,240,0.15);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a1 1 0 110 2 1 1 0 010-2zm2 11H10v-2h1v-4h-1v-2h3v6h1v2z" fill="rgba(124,109,240,0.9)"/>
+              </svg>
+            </div>
+            <span class="company-name">Salesforce Â· AI Agentforce</span>
+          </div>
+
+          <h3 class="project-title">AI Agentforce Strategy for GTM Sales Teams</h3>
+
+          <p class="project-challenge">Sales teams overwhelmed by manual research, prospecting, and outreach. Architected a scalable AI agent strategy to multiply rep productivity through intelligent automation.</p>
+
+          <div class="project-details">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M13 3L6 10l-3-3" stroke="rgba(124,109,240,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="8" cy="8" r="6" stroke="rgba(124,109,240,0.4)" stroke-width="1"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Approach</div>
+                <div class="detail-value">Architected AI agent strategy with pilot program design and iterative rollout across sales org</div>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <path d="M8 2C5.2 2 3 4.2 3 7c0 1.8.9 3.4 2.3 4.4L5 14h6l-.3-2.6C12.1 10.4 13 8.8 13 7c0-2.8-2.2-5-5-5z" stroke="rgba(52,211,153,0.8)" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <div class="detail-label">Technical Stack</div>
+                <div class="detail-value">Salesforce Agentforce, Einstein AI, prompt engineering, workflow automation</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-tags">
+            <span class="tech-tag tag-purple"><span class="tech-tag-dot"></span>Agentforce</span>
+            <span class="tech-tag tag-blue"><span class="tech-tag-dot"></span>Einstein AI</span>
+            <span class="tech-tag tag-green"><span class="tech-tag-dot"></span>Prompt Engineering</span>
+            <span class="tech-tag tag-amber"><span class="tech-tag-dot"></span>Workflow Automation</span>
+            <span class="tech-tag tag-rose"><span class="tech-tag-dot"></span>GTM Enablement</span>
+          </div>
+
+          <div class="outcomes-strip">
+            <div class="outcome-item outcome-purple">
+              <div class="outcome-value">â Rep</div>
+              <div class="outcome-label">Productivity</div>
+            </div>
+            <div class="outcome-item outcome-blue">
+              <div class="outcome-value">â Lead</div>
+              <div class="outcome-label">Quality Score</div>
+            </div>
+            <div class="outcome-item outcome-green">
+              <div class="outcome-value">Scale</div>
+              <div class="outcome-label">AI Adoption</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <!-- End Projects Grid -->
+
+  </div>
+</section>
+
+<script>
+  // Scroll-triggered reveal animations
+  const observerOptions = {
+    threshold: 0.12,
+    rootMargin: '0px 0px -60px 0px'
+  };
+
   const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = (Array.from(revealEls).indexOf(entry.target) % 4) * 0.08 + 's';
         entry.target.classList.add('visible');
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => revealObserver.observe(el));
+  }, observerOptions);
 
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) { navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)'; }
-    else { navbar.style.boxShadow = 'none'; }
-  });
-
-  // Smooth active nav link highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('#navLinks a[href^="#"]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
-    navAnchors.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
-    });
+  document.querySelectorAll('.reveal, .slide-left, .slide-right').forEach(el => {
+    revealObserver.observe(el);
   });
 </script>
+
+<section id="contact-section">
+
+  <!-- Background elements -->
+  <div class="grid-overlay"></div>
+  <div class="glow-orb glow-orb--gold"></div>
+  <div class="glow-orb glow-orb--blue"></div>
+  <div class="glow-orb glow-orb--blue2"></div>
+  <canvas id="contact-canvas"></canvas>
+
+  <!-- Main content -->
+  <div class="contact-container">
+
+    <!-- Eyebrow label -->
+    <div class="contact-eyebrow">
+      <div class="eyebrow-dot"></div>
+      <span>Available for New Opportunities</span>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="contact-headline">
+      Let's Build Something<br>
+      <span class="headline-accent">Exceptional</span>
+    </h2>
+
+    <!-- Subtext -->
+    <p class="contact-subtext">
+      Open to Salesforce Product Manager opportunities and strategic consulting engagements
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="contact-ctas">
+
+      <!-- Email CTA -->
+      <a href="mailto:dbrowntech15@gmail.com" class="cta-btn cta-btn--email">
+        <span class="btn-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="3" stroke="#0a0a0d" stroke-width="1.8" fill="none"/>
+            <path d="M2 7L10.586 13.414C11.367 14.063 12.633 14.063 13.414 13.414L22 7" stroke="#0a0a0d" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        Email Me
+        <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#0a0a0d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- LinkedIn CTA -->
+      <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--linkedin">
+        <span class="btn-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="9" width="4" height="12" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="4" cy="4" r="2" stroke="#ffffff" stroke-width="1.8"/>
+          </svg>
+        </span>
+        View LinkedIn
+        <span class="btn-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="contact-divider"></div>
+
+    <!-- Contact info row -->
+    <div class="contact-info-row">
+
+      <!-- Email info -->
+      <a href="mailto:dbrowntech15@gmail.com" class="contact-info-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
+          <path d="M2 7L10.586 13.414C11.367 14.063 12.633 14.063 13.414 13.414L22 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        dbrowntech15@gmail.com
+      </a>
+
+      <div class="info-separator"></div>
+
+      <!-- LinkedIn info -->
+      <a href="https://www.linkedin.com/in/dbrowntech" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        linkedin.com/in/dbrowntech
+      </a>
+
+      <div class="info-separator"></div>
+
+      <!-- Location info -->
+      <span class="contact-info-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        Atlanta, GA
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function() {
+  const canvas = document.getElementById('contact-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animId;
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 1.5 + 0.3,
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: (Math.random() - 0.5) * 0.3 - 0.15,
+      opacity: Math.random() * 0.5 + 0.1,
+      opacityDelta: (Math.random() * 0.005 + 0.002) * (Math.random() > 0.5 ? 1 : -1),
+      gold: Math.random() > 0.6
+    };
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: 90 }, createParticle);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((p, i) => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.opacity += p.opacityDelta;
+      if (p.opacity <= 0.05 || p.opacity >= 0.6) p.opacityDelta *= -1;
+      if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
+        particles[i] = createParticle();
+        particles[i].y = canvas.height + 2;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold
+        ? `rgba(212, 175, 55, ${p.opacity})`
+        : `rgba(255, 255, 255, ${p.opacity * 0.5})`;
+      ctx.fill();
+    });
+    animId = requestAnimationFrame(draw);
+  }
+
+  /* Magnetic button effect */
+  document.querySelectorAll('.cta-btn').forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const strength = 0.25;
+      this.style.transform = `translate(${x * strength}px, ${y * strength - 3}px) scale(1.03)`;
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        init();
+        draw();
+      } else {
+        cancelAnimationFrame(animId);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(document.getElementById('contact-section'));
+  window.addEventListener('resize', () => { resize(); });
+})();
+</script>
+
+<style>
+  /* ===== FOOTER SECTION ===== */
+  .footer-section {
+    background: #0a0a0a;
+    padding: 80px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* Gradient Divider */
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 20%, rgba(212, 175, 55, 0.5) 50%, rgba(212, 175, 55, 0.15) 80%, transparent 100%);
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .footer-divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  }
+
+  /* Quote Block */
+  .footer-quote-block {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .footer-quote-mark {
+    display: inline-block;
+    margin-bottom: 20px;
+    opacity: 0.3;
+  }
+
+  .footer-quote-mark svg {
+    width: 32px;
+    height: 24px;
+    fill: #d4af37;
+  }
+
+  .footer-quote {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Footer Brand */
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand-mark {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .footer-brand-mark svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-brand-name {
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Footer Bottom Row */
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .footer-copyright {
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .footer-link {
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.6);
+    transition: width 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: rgba(212, 175, 55, 0.8);
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  /* Back to Top Button */
+  .back-to-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 24px;
+    padding: 8px 18px 8px 14px;
+    cursor: pointer;
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(212, 175, 55, 0.65);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .back-to-top svg {
+    width: 12px;
+    height: 12px;
+    stroke: rgba(212, 175, 55, 0.65);
+    fill: none;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), stroke 0.35s ease;
+  }
+
+  .back-to-top:hover {
+    background: rgba(212, 175, 55, 0.06);
+    border-color: rgba(212, 175, 55, 0.5);
+    color: rgba(212, 175, 55, 1);
+  }
+
+  .back-to-top:hover svg {
+    stroke: rgba(212, 175, 55, 1);
+    transform: translateY(-3px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-inner {
+      padding: 0 24px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .footer-links {
+      order: -1;
+      gap: 24px;
+    }
+
+    .footer-quote {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-section {
+      padding: 60px 0 32px;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+</style>
+
+<footer class="footer-section" id="footer">
+  <div class="footer-inner">
+
+    <!-- Gradient Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Quote -->
+    <div class="footer-quote-block">
+      <div class="footer-quote-mark">
+        <svg viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 30 L0 18 Q0 6 12 0 L16 4 Q8 8 8 18 L16 18 L16 30 Z M22 30 L22 18 Q22 6 34 0 L38 4 Q30 8 30 18 L38 18 L38 30 Z"/>
+        </svg>
+      </div>
+      <p class="footer-quote">Excellence is not a destination but a continuous journey of transformation.</p>
+    </div>
+
+    <!-- Brand Mark -->
+    <div class="footer-brand">
+      <div class="footer-brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3 L12 21" stroke="rgba(212,175,55,0.7)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M6 7 Q12 4 18 7" stroke="rgba(212,175,55,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <path d="M6 17 Q12 20 18 17" stroke="rgba(212,175,55,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <circle cx="12" cy="12" r="2" fill="rgba(212,175,55,0.5)"/>
+        </svg>
+      </div>
+      <span class="footer-brand-name">Dedric Brown</span>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Dedric Brown. All rights reserved.</p>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#privacy" class="footer-link">Privacy</a>
+        <a
+          href="#top"
+          class="back-to-top"
+          aria-label="Back to top"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;"
+        >
+          <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,8 6,4 10,8"/>
+          </svg>
+          Back to Top
+        </a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+// ============================================
+// Dedric Brown Portfolio - Main JavaScript
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ============================================
+  // 1. INTERSECTION OBSERVER - Scroll Animations
+  // ============================================
+  const animatedElements = document.querySelectorAll(
+    '.fade-in, .slide-up, .slide-left, .slide-right, .scale-in, [data-animate]'
+  );
+
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  };
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+
+        setTimeout(() => {
+          el.classList.add('animated');
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) translateX(0) scale(1)';
+        }, parseInt(delay));
+
+        scrollObserver.unobserve(el);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => {
+    // Set initial state
+    if (!el.classList.contains('animated')) {
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      el.style.opacity = '0';
+
+      if (el.classList.contains('slide-up') || el.dataset.animate === 'slide-up') {
+        el.style.transform = 'translateY(60px)';
+      } else if (el.classList.contains('slide-left') || el.dataset.animate === 'slide-left') {
+        el.style.transform = 'translateX(-60px)';
+      } else if (el.classList.contains('slide-right') || el.dataset.animate === 'slide-right') {
+        el.style.transform = 'translateX(60px)';
+      } else if (el.classList.contains('scale-in') || el.dataset.animate === 'scale-in') {
+        el.style.transform = 'scale(0.85)';
+      } else {
+        el.style.transform = 'translateY(30px)';
+      }
+
+      scrollObserver.observe(el);
+    }
+  });
+
+  // Staggered children animation
+  const staggerContainers = document.querySelectorAll('[data-stagger]');
+  staggerContainers.forEach(container => {
+    const children = container.children;
+    const staggerDelay = parseInt(container.dataset.stagger) || 100;
+
+    const containerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          Array.from(children).forEach((child, index) => {
+            child.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+            child.style.opacity = '0';
+            child.style.transform = 'translateY(40px)';
+
+            setTimeout(() => {
+              child.style.opacity = '1';
+              child.style.transform = 'translateY(0)';
+            }, index * staggerDelay);
+          });
+          containerObserver.unobserve(container);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    containerObserver.observe(container);
+  });
+
+
+  // ============================================
+  // 2. TEXT REVEAL ANIMATION (Char by Char)
+  // ============================================
+  const textRevealElements = document.querySelectorAll('[data-text-reveal], .text-reveal');
+
+  function splitTextToChars(element) {
+    const text = element.textContent;
+    element.textContent = '';
+    element.setAttribute('aria-label', text);
+
+    const fragment = document.createDocumentFragment();
+    [...text].forEach((char, index) => {
+      const span = document.createElement('span');
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      span.style.cssText = `
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px) rotateX(-90deg);
+        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition-delay: ${index * 35}ms;
+        backface-visibility: hidden;
+      `;
+      fragment.appendChild(span);
+    });
+
+    element.appendChild(fragment);
+    return element.querySelectorAll('span');
+  }
+
+  const textRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const spans = entry.target.querySelectorAll('span');
+        spans.forEach(span => {
+          span.style.opacity = '1';
+          span.style.transform = 'translateY(0) rotateX(0deg)';
+        });
+        textRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  textRevealElements.forEach(el => {
+    splitTextToChars(el);
+    textRevealObserver.observe(el);
+  });
+
+
+  // ============================================
+  // 3. MAGNETIC BUTTON EFFECT
+  // ============================================
+  const magneticButtons = document.querySelectorAll('.magnetic-btn, [data-magnetic], .btn-primary, .btn-secondary, .cta-button, .nav-cta');
+
+  function initMagneticEffect(button) {
+    let rafId = null;
+    const strength = parseFloat(button.dataset.magneticStrength) || 0.35;
+
+    function onMouseMove(e) {
+      if (rafId) cancelAnimationFrame(rafId);
+
+      rafId = requestAnimationFrame(() => {
+        const rect = button.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) * strength;
+        const deltaY = (e.clientY - centerY) * strength;
+
+        button.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.05)`;
+
+        // Move inner content slightly more
+        const inner = button.querySelector('span') || button;
+        if (inner !== button) {
+          inner.style.transform = `translate(${deltaX * 0.3}px, ${deltaY * 0.3}px)`;
+        }
+      });
+    }
+
+    function onMouseLeave() {
+      if (rafId) cancelAnimationFrame(rafId);
+
+      button.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      button.style.transform = 'translate(0, 0) scale(1)';
+
+      const inner = button.querySelector('span');
+      if (inner) {
+        inner.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        inner.style.transform = 'translate(0, 0)';
+      }
+
+      setTimeout(() => {
+        button.style.transition = '';
+        if (inner) inner.style.transition = '';
+      }, 500);
+    }
+
+    function onMouseEnter() {
+      button.style.transition = 'transform 0.1s ease';
+    }
+
+    button.addEventListener('mouseenter', onMouseEnter);
+    button.addEventListener('mousemove', onMouseMove);
+    button.addEventListener('mouseleave', onMouseLeave);
+  }
+
+  // Only apply on non-touch devices
+  if (!('ontouchstart' in window)) {
+    magneticButtons.forEach(initMagneticEffect);
+  }
+
+
+  // ============================================
+  // 4. SMOOTH SCROLL FOR ANCHOR LINKS
+  // ============================================
+  function smoothScrollTo(target, duration = 900) {
+    const targetEl = document.querySelector(target);
+    if (!targetEl) return;
+
+    const navHeight = document.querySelector('nav, header, .navbar')?.offsetHeight || 80;
+    const startY = window.scrollY;
+    const targetY = targetEl.getBoundingClientRect().top + window.scrollY - navHeight;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
+
+      window.scrollTo(0, startY + distance * eased);
+
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Event delegation for anchor links
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (href === '#') return;
+
+    e.preventDefault();
+    smoothScrollTo(href);
+
+    // Close mobile nav if open
+    const mobileNav = document.querySelector('.nav-menu, .mobile-nav, .nav-links');
+    if (mobileNav && mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+      document.body.classList.remove('nav-open');
+    }
+  });
+
+
+  // ============================================
+  // 5. PARALLAX EFFECT FOR HERO BACKGROUND
+  // ============================================
+  const heroSection = document.querySelector('.hero, #hero, .hero-section');
+  const parallaxLayers = document.querySelectorAll('[data-parallax], .parallax-layer');
+
+  let ticking = false;
+  let lastScrollY = 0;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+
+    // Hero background parallax
+    if (heroSection) {
+      const heroHeight = heroSection.offsetHeight;
+      const scrollProgress = scrollY / heroHeight;
+
+      if (scrollY < heroHeight * 1.5) {
+        const heroBg = heroSection.querySelector('.hero-bg, .hero-background, .hero-image, .hero-visual');
+        if (heroBg) {
+          heroBg.style.transform = `translateY(${scrollProgress * 80}px)`;
+        }
+
+        // Parallax for hero content
+        const heroContent = heroSection.querySelector('.hero-content, .hero-text');
+        if (heroContent) {
+          heroContent.style.transform = `translateY(${scrollProgress * 40}px)`;
+          heroContent.style.opacity = `${1 - scrollProgress * 1.5}`;
+        }
+      }
+    }
+
+    // Generic parallax layers
+    parallaxLayers.forEach(layer => {
+      const speed = parseFloat(layer.dataset.parallax) || 0.3;
+      const rect = layer.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const elementCenter = rect.top + rect.height / 2;
+      const distance = elementCenter - viewportCenter;
+
+      layer.style.transform = `translateY(${distance * speed}px)`;
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+
+  // ============================================
+  // 6. MOBILE NAVIGATION TOGGLE
+  // ============================================
+  const hamburger = document.querySelector('.hamburger, .nav-toggle, .menu-toggle, [data-nav-toggle]');
+  const navMenu = document.querySelector('.nav-menu, .nav-links, .mobile-nav, [data-nav-menu]');
+  const navOverlay = document.querySelector('.nav-overlay, .menu-overlay');
+
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isOpen);
+
+      if (navMenu) navMenu.classList.toggle('active');
+      if (navOverlay) navOverlay.classList.toggle('active');
+
+      // Prevent body scroll when nav is open
+      document.body.classList.toggle('nav-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Hamburger bar animation
+    const bars = hamburger.querySelectorAll('.bar, .hamburger-line, span');
+    if (bars.length >= 3) {
+      hamburger.addEventListener('click', () => {
+        const isActive = hamburger.classList.contains('active');
+        bars[0].style.transform = isActive ? 'translateY(8px) rotate(45deg)' : '';
+        bars[1].style.opacity = isActive ? '0' : '';
+        bars[1].style.transform = isActive ? 'scaleX(0)' : '';
+        bars[2].style.transform = isActive ? 'translateY(-8px) rotate(-45deg)' : '';
+
+        bars.forEach(bar => {
+          bar.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease';
+        });
+      });
+    }
+  }
+
+  // Close nav on overlay click
+  if (navOverlay) {
+    navOverlay.addEventListener('click', () => {
+      hamburger?.classList.remove('active');
+      navMenu?.classList.remove('active');
+      navOverlay.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Close nav on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
+      hamburger?.classList.remove('active');
+      navMenu?.classList.remove('active');
+      navOverlay?.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = '';
+    }
+  });
+
+
+  // ============================================
+  // 7. ACTIVE NAV LINK HIGHLIGHTING ON SCROLL
+  // ============================================
+  const sections = document.querySelectorAll('section[id], div[id].section');
+  const navLinks = document.querySelectorAll('nav a[href^="#"], .nav-links a[href^="#"], .nav-menu a[href^="#"]');
+  const navbar = document.querySelector('nav, .navbar, header.sticky');
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY;
+    const navHeight = navbar?.offsetHeight || 80;
+
+    // Navbar scroll style
+    if (navbar) {
+      if (scrollY > 50) {
+        navbar.classList.add('scrolled', 'sticky');
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.boxShadow = '';
+      }
+    }
+
+    // Update active link
+    let currentSection = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top + scrollY;
+      const sectionHeight = section.offsetHeight;
+
+      if (scrollY >= sectionTop - navHeight - 100 && scrollY < sectionTop + sectionHeight - navHeight) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      link.setAttribute('aria-current', 'false');
+
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  }
+
+  // Throttled scroll listener for nav
+  let navTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!navTicking) {
+      requestAnimationFrame(() => {
+        updateActiveNav();
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  }, { passive: true });
+
+  // Initial call
+  updateActiveNav();
+
+
+  // ============================================
+  // BONUS: Cursor Glow Effect
+  // ============================================
+  if (!('ontouchstart' in window)) {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    cursor.style.cssText = `
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: rgba(99, 102, 241, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+      mix-blend-mode: screen;
+      opacity: 0;
+    `;
+
+    const cursorOuter = document.createElement('div');
+    cursorOuter.className = 'custom-cursor-outer';
+    cursorOuter.style.cssText = `
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid rgba(99, 102, 241, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease, border-color 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+    `;
+
+    document.body.appendChild(cursor);
+    document.body.appendChild(cursorOuter);
+
+    let mouseX = 0, mouseY = 0;
+    let outerX = 0, outerY = 0;
+    let cursorVisible = false;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!cursorVisible) {
+        cursor.style.opacity = '1';
+        cursorOuter.style.opacity = '1';
+        cursorVisible = true;
+      }
+
+      cursor.style.left = `${mouseX}px`;
+      cursor.style.top = `${mouseY}px`;
+    });
+
+    // Smooth outer cursor follow
+    function animateOuterCursor() {
+      outerX += (mouseX - outerX) * 0.12;
+      outerY += (mouseY - outerY) * 0.12;
+
+      cursorOuter.style.left = `${outerX}px`;
+      cursorOuter.style.top = `${outerY}px`;
+
+      requestAnimationFrame(animateOuterCursor);
+    }
+    animateOuterCursor();
+
+    // Cursor states on interactive elements
+    const interactiveElements = 'a, button, [role="button"], input, textarea, select, .card, [data-cursor]';
+
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(interactiveElements)) {
+        cursor.style.width = '12px';
+        cursor.style.height = '12px';
+        cursor.style.background = 'rgba(139, 92, 246, 0.8)';
+        cursorOuter.style.width = '60px';
+        cursorOuter.style.height = '60px';
+        cursorOuter.style.borderColor = 'rgba(139, 92, 246, 0.5)';
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(interactiveElements)) {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.background = 'rgba(99, 102, 241, 0.6)';
+        cursorOuter.style.width = '40px';
+        cursorOuter.style.height = '40px';
+        cursorOuter.style.borderColor = 'rgba(99, 102, 241, 0.4)';
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      cursorOuter.style.opacity = '0';
+      cursorVisible = false;
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '1';
+      cursorOuter.style.opacity = '1';
+      cursorVisible = true;
+    });
+  }
+
+
+  // ============================================
+  // BONUS: Typing Effect for Hero Subtitle
+  // ============================================
+  const typingElements = document.querySelectorAll('[data-typing], .typing-text');
+
+  typingElements.forEach(el => {
+    const words = el.dataset.typing
+      ? JSON.parse(el.dataset.typing)
+      : [el.textContent.trim()];
+
+    el.textContent = '';
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingTimer = null;
+
+    function typeWord() {
+      const currentWord = words[wordIndex];
+      const typingSpeed = isDeleting ? 60 : 100;
+      const pauseTime = isDeleting ? 50 : 1800;
+
+      if (!isDeleting && charIndex < currentWord.length) {
+        el.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typingTimer = setTimeout(typeWord, typingSpeed);
+      } else if (isDeleting && charIndex > 0) {
+        el.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typingTimer = setTimeout(typeWord, typingSpeed);
+      } else if (!isDeleting && charIndex === currentWord.length) {
+        if (words.length > 1) {
+          isDeleting = true;
+          typingTimer = setTimeout(typeWord, pauseTime);
+        }
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typingTimer = setTimeout(typeWord, 300);
+      }
+    }
+
+    // Add cursor
+    const cursorEl = document.createElement('span');
+    cursorEl.textContent = '|';
+    cursorEl.style.cssText = `
+      animation: blink 1s step-end infinite;
+      color: inherit;
+      margin-left: 2px;
+    `;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    el.parentNode.insertBefore(cursorEl, el.nextSibling);
+
+    setTimeout(() => typeWord(), 500);
+  });
+
+
+  // ============================================
+  // BONUS: Progress bar on scroll
+  // ============================================
+  const progressBar = document.createElement('div');
+  progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+    width: 0%;
+    z-index: 999999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  `;
+  document.body.prepend(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = (window.scrollY / scrollHeight) * 100;
+    progressBar.style.width = `${Math.min(scrollProgress, 100)}%`;
+  }, { passive: true });
+
+
+  // ============================================
+  // BONUS: Card Hover 3D Tilt Effect
+  // ============================================
+  const tiltCards = document.querySelectorAll('.card, .project-card, .skill-card, [data-tilt]');
+
+  if (!('ontouchstart' in window)) {
+    tiltCards.forEach(card => {
+      const maxTilt = parseFloat(card.dataset.tilt) || 8;
+
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'transform 0.1s ease';
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * maxTilt;
+          const rotateX = -((e.clientY - centerY) / (rect.height / 2)) * maxTilt;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    });
+  }
+
+
+  // ============================================
+  // INIT: Trigger animations for visible elements
+  // ============================================
+  setTimeout(() => {
+    animatedElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) translateX(0) scale(1)';
+        el.classList.add('animated');
+      }
+    });
+  }, 100);
+
+  console.log('â¨ Dedric Brown Portfolio - JavaScript Initialized');
+
+});
+</script>
+
 </body>
 </html>
